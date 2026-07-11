@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/img/_originals/
+
+Sitemap: https://beddingsourcing.online/sitemap.xml

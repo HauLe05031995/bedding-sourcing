@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bedding Sourcing | Giải pháp Sourcing Chăn Ga Gối Đệm B2B Cao Cấp</title>
     <meta name="description" content="Bedding Sourcing cung cấp giải pháp tư vấn tìm nguồn cung ứng, phát triển sản phẩm nhãn hàng riêng (Private Label), kiểm soát chất lượng (QC) và hỗ trợ xuất nhập khẩu chăn ga gối đệm hàng đầu tại Việt Nam.">
-    
+
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://beddingsourcing.online/">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bedding Sourcing">
+    <meta property="og:title" content="Bedding Sourcing | Giải pháp Sourcing Chăn Ga Gối Đệm B2B">
+    <meta property="og:description" content="Đối tác sourcing kỹ thuật ngành bedding tại Việt Nam: kết nối nhà máy đạt chuẩn, phát triển Private Label, kiểm soát chất lượng AQL 1.5/2.5 và hỗ trợ xuất khẩu.">
+    <meta property="og:url" content="https://beddingsourcing.online/">
+    <meta property="og:image" content="https://beddingsourcing.online/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bedding Sourcing | B2B Bedding Sourcing Solutions">
+    <meta name="twitter:description" content="Technical sourcing partner in Vietnam for bedding, home textiles and mattress machinery. Factory matching, OEM/ODM, AQL inspection, export support.">
+    <meta name="twitter:image" content="https://beddingsourcing.online/assets/img/og-image.jpg">
+
     <!-- Progressive Enhancement: Add .js class to HTML element to prevent white screen if JS fails/delays -->
     <script>
         document.documentElement.classList.add('js');
@@ -465,7 +484,7 @@
             display: flex;
             align-items: center;
             background-color: var(--primary);
-            background-image: url('assets/img/hero/01_hinh_nen_chinh.jpg?v=2');
+            background-image: url('assets/img/hero/01_hinh_nen_chinh.jpg?v=3');
             background-size: cover;
             background-position: center;
             color: #ffffff;
@@ -1048,6 +1067,87 @@
             }
         }
 
+        /* Product card CTA */
+        .product-cta {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #ffffff;
+            padding-bottom: 2px;
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.55);
+            transition: var(--transition-fast);
+        }
+        .product-cta:hover {
+            border-bottom-color: #ffffff;
+            transform: translateX(3px);
+        }
+
+        /* Quick lead form (home final CTA) */
+        .quick-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 480px;
+            margin: 32px auto 0 auto;
+            text-align: left;
+        }
+        .quick-form .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 13px 16px;
+            font-size: 0.95rem;
+            font-family: var(--font-family);
+            width: 100%;
+        }
+        .quick-form .form-control::placeholder { color: rgba(255, 255, 255, 0.5); }
+        .quick-form .form-control:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.55);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+        .quick-form textarea.form-control { min-height: 90px; resize: vertical; }
+        .quick-form .btn { width: 100%; }
+        .quick-form-note {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.55);
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        /* Mobile sticky CTA bar */
+        .mobile-cta-bar {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-cta-bar {
+                display: flex;
+                gap: 10px;
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 900;
+                padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)) 14px;
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-top: 1px solid var(--border-color);
+            }
+            .mobile-cta-bar .btn {
+                flex: 1;
+                padding: 13px 16px;
+                font-size: 0.92rem;
+            }
+            /* Nhường chỗ cho thanh sticky: đẩy nội dung & các nút nổi lên trên */
+            body { padding-bottom: 66px; }
+            .floating-contacts { bottom: 150px; right: 16px; }
+            .back-to-top { bottom: 84px; right: 16px; }
+            .cookie-consent { bottom: 78px; }
+        }
+
         /* Spec Table */
         .spec-table-container {
             width: 100%;
@@ -1576,6 +1676,40 @@
             box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
         }
 
+        .form-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: wait;
+            box-shadow: none;
+        }
+
+        /* Consent checkbox & form note */
+        .form-consent .consent-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+        .form-consent input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+        .form-consent a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        .form-note {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+            margin-top: 10px;
+        }
+
         @media (max-width: 992px) {
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -1817,6 +1951,10 @@
             letter-spacing: -0.5px;
         }
 
+        .contact-btn.whatsapp {
+            background-color: #25d366;
+        }
+
         /* Pulse Animation for Phone */
         .contact-btn.phone::before {
             content: '';
@@ -1877,6 +2015,11 @@
         .footer-social-btn.phone:hover {
             background-color: #28a745;
         }
+        .footer-social-btn.whatsapp:hover {
+            background-color: #25d366;
+        }
+        .footer-contact-item a { color: inherit; }
+        .footer-contact-item a:hover { color: var(--accent); }
         .footer-social-btn.zalo {
             font-weight: 700;
             font-size: 0.85rem;
@@ -2100,6 +2243,7 @@
             .mobile-menu-contact a svg { width: 16px; height: 16px; flex-shrink: 0; }
             .mobile-menu-contact .m-phone:active { background: rgba(40, 167, 69, 0.12); color: #28a745; }
             .mobile-menu-contact .m-zalo:active { background: rgba(0, 104, 255, 0.12); color: #0068ff; }
+            .mobile-menu-contact .m-whatsapp:active { background: rgba(37, 211, 102, 0.12); color: #25d366; }
         }
 
         /* Desktop CTA hide in mobile menu but show inline if needed */
@@ -2191,10 +2335,10 @@
 
         /* ===== Horizontal-overflow hardening ===== */
         @media (max-width: 768px) {
-            /* Stat columns can never be forced wider than their share */
+            /* Stat columns can never be forced wider than their share (2x2 on mobile) */
             .about-stats {
-                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-                gap: 8px !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 16px 8px !important;
             }
             /* Number scales with viewport so 3 columns always fit */
             .about-stats .stat-number {
@@ -2254,6 +2398,34 @@
             margin: 20px 0;
         }
         .policy-box p:last-child { margin-bottom: 0; }
+        /* Bảng trong bài viết blog (dùng chung khung .policy-content) */
+        .policy-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin: 16px 0 24px 0;
+        }
+        .policy-content th, .policy-content td {
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            color: var(--text-secondary);
+        }
+        .policy-content th {
+            background: var(--bg-secondary);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .article-cta {
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 18px;
+            padding: 32px;
+            margin-top: 44px;
+            text-align: center;
+        }
+        .article-cta h2 { color: #ffffff !important; margin-top: 0 !important; }
+        .article-cta p { color: rgba(255,255,255,0.75) !important; }
 
         /* ===== Cookie consent banner ===== */
         .cookie-consent {
@@ -2340,6 +2512,94 @@
         .lang-dd-menu button.active::after{content:'';width:6px;height:11px;border:solid var(--accent);border-width:0 2px 2px 0;transform:rotate(45deg);margin-right:2px;margin-bottom:2px;}
         @media (max-width:992px){ .lang-dd{margin-right:6px;} }
     </style>
+
+    <!-- Structured data: Organization + Services + FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://beddingsourcing.online/#org",
+          "name": "Bedding Sourcing",
+          "legalName": "CÔNG TY TNHH TƯ VẤN DỊCH VỤ VÀ THƯƠNG MẠI BEDDING SOURCING",
+          "alternateName": "Bedding Sourcing Consulting Service and Trading Company Limited",
+          "url": "https://beddingsourcing.online/",
+          "logo": "https://beddingsourcing.online/assets/img/favicon.svg",
+          "image": "https://beddingsourcing.online/assets/img/og-image.jpg",
+          "foundingDate": "2023-03-02",
+          "taxID": "0317712253",
+          "founder": { "@type": "Person", "name": "Tống Nguyên Anh" },
+          "email": "info@beddingsourcing.vn",
+          "telephone": "+84933126162",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "23 Đường T4A, Phường Tây Thạnh",
+            "addressLocality": "Thành phố Hồ Chí Minh",
+            "addressCountry": "VN"
+          },
+          "areaServed": ["VN", "US", "EU", "Worldwide"],
+          "knowsLanguage": ["vi", "en"]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://beddingsourcing.online/#service",
+          "serviceType": "B2B bedding sourcing and supply chain consulting",
+          "provider": { "@id": "https://beddingsourcing.online/#org" },
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dịch vụ chuỗi cung ứng bedding",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tư vấn sourcing chăn ga gối đệm" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phát triển sản phẩm Private Label (OEM/ODM)" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sourcing máy móc & thiết bị sản xuất nệm" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kết nối nhà máy và nhà cung cấp" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kiểm soát chất lượng độc lập (QC) AQL 1.5/2.5" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hỗ trợ xuất nhập khẩu và ủy thác hải quan" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tư vấn danh mục và thị trường" } }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://beddingsourcing.online/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Số lượng đặt hàng tối thiểu (MOQ) trung bình là bao nhiêu?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Đối với các loại vải dệt nhuộm có sẵn trong kho, MOQ dệt may chỉ từ 500 mét/màu. Đối với các đơn hàng nhuộm màu Pantone riêng hoặc đặt dệt jacquard/dobby theo yêu cầu, MOQ dao động từ 1.500m đến 3.000m tùy chi số sợi." }
+            },
+            {
+              "@type": "Question",
+              "name": "Thời gian phát triển mẫu thử dệt may (Gold Sample) là bao lâu?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Trung bình 7 đến 10 ngày làm việc sau khi chốt thông số kỹ thuật vải. Mẫu thêu dệt độc quyền có thể cần thêm 3-5 ngày để tinh chỉnh khuôn thêu CNC." }
+            },
+            {
+              "@type": "Question",
+              "name": "Bedding Sourcing có hỗ trợ thủ tục thông quan xuất khẩu đi Mỹ và EU không?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Có. Chúng tôi chuẩn bị hồ sơ khai báo hải quan, xin chứng nhận xuất xứ (C/O Form B, Form EUR.1, Form D), hỗ trợ kiểm nghiệm đạt chuẩn kiểm định hải quan EU/Mỹ." }
+            },
+            {
+              "@type": "Question",
+              "name": "Có chính sách bảo hành đối với máy móc thiết bị ngành nệm không?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Tất cả máy móc thiết bị ngành nệm do Bedding Sourcing kết nối nhập khẩu đều được bảo hành kỹ thuật chính hãng 12 tháng, hỗ trợ lắp đặt, hiệu chỉnh PLC và cung ứng phụ tùng chính hãng tối thiểu 5 năm." }
+            },
+            {
+              "@type": "Question",
+              "name": "Bedding Sourcing hỗ trợ những thị trường xuất khẩu nào?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Chúng tôi hỗ trợ chứng từ xuất khẩu đi Mỹ, EU (C/O Form B, Form EUR.1), ASEAN (Form D) và Trung Quốc (Form E), cùng mạng lưới nguyên liệu tại Việt Nam, Trung Quốc và Ấn Độ." }
+            },
+            {
+              "@type": "Question",
+              "name": "Quy trình hợp tác bắt đầu như thế nào?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Bạn gửi yêu cầu qua form. Chúng tôi phản hồi trong 24 giờ làm việc, lập tài liệu kỹ thuật, gửi RFQ tới các nhà máy đạt tiêu chí và báo lại phương án kèm khung giá — bước tư vấn ban đầu miễn phí." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -2375,6 +2635,10 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                         Chat Zalo
                     </a>
+                    <a href="https://wa.me/84933126162" target="_blank" rel="noopener" class="m-whatsapp btn-menu-close" aria-label="Chat WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
                 </div>
             </nav>
 
@@ -2406,7 +2670,7 @@
             <!-- Full Screen Hero -->
             <section class="hero">
                 <!-- Video Background (Auto plays if 02_video_nen.mp4 exists, otherwise falls back to the background image) -->
-                <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/img/hero/01_hinh_nen_chinh.jpg?v=2">
+                <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/img/hero/01_hinh_nen_chinh.jpg?v=3">
                     <source src="assets/img/hero/02_video_nen.mp4?v=3" type="video/mp4">
                 </video>
                 
@@ -2467,7 +2731,7 @@
                             <a href="#gioi-thieu" class="btn btn-primary" style="margin-top: 15px;">Tìm hiểu sâu hơn</a>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img loading="lazy" decoding="async" src="assets/img/about/01_chuoi_cung_ung.png?v=2" alt="Vận chuyển logistics và container đường biển">
+                            <img loading="lazy" decoding="async" src="assets/img/about/01_chuoi_cung_ung.jpg?v=3" alt="Vận chuyển logistics và container đường biển">
                         </div>
                     </div>
                 </div>
@@ -2478,25 +2742,63 @@
                 <div class="container text-center">
                     <span class="badge">Năng lực số liệu</span>
                     <h2 class="reveal-fade" style="font-weight: 800; color: var(--primary); margin-bottom: 50px;">Cam kết năng lực của Bedding Sourcing</h2>
-                    <div class="about-stats reveal-slide-up" style="border: none; margin-top: 0; padding-top: 0; display: grid; grid-template-columns: repeat(3, 1fr); justify-content: center; max-width: 800px; margin: 0 auto;">
+                    <div class="about-stats reveal-slide-up" style="border: none; margin-top: 0; padding-top: 0; display: grid; grid-template-columns: repeat(4, 1fr); justify-content: center; max-width: 1000px; margin: 0 auto;">
                         <div class="stat-item" style="text-align: center;">
-                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">02/03</span>
-                            <span class="stat-label">Ngày hoạt động chính thức (2023)</span>
+                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">50+</span>
+                            <span class="stat-label">Nhà máy đối tác đạt chuẩn quốc tế</span>
                         </div>
                         <div class="stat-item" style="text-align: center;">
-                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">100%</span>
-                            <span class="stat-label">Cam kết chất lượng AQL 1.5 / 2.5</span>
+                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">500m</span>
+                            <span class="stat-label">MOQ thấp nhất mỗi màu vải</span>
                         </div>
                         <div class="stat-item" style="text-align: center;">
-                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">B2B</span>
-                            <span class="stat-label">Mô hình phục vụ doanh nghiệp</span>
+                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">7–10</span>
+                            <span class="stat-label">Ngày ra mẫu Gold Sample</span>
+                        </div>
+                        <div class="stat-item" style="text-align: center;">
+                            <span class="stat-number" style="font-size: 3rem; color: var(--accent);">AQL 1.5/2.5</span>
+                            <span class="stat-label">Chuẩn kiểm hàng độc lập</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem / Pain points -->
+            <section class="section-padding" style="background-color: var(--bg-primary);">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge">Rủi ro thường gặp</span>
+                        <h2>Tự sourcing bedding thường gặp 3 rủi ro</h2>
+                        <p>Đây là những vấn đề chúng tôi nghe nhiều nhất từ các nhãn hàng, khách sạn và nhà nhập khẩu — và là lý do Bedding Sourcing tồn tại.</p>
+                    </div>
+                    <div class="services-grid" style="gap: 24px;">
+                        <div class="service-card reveal-slide-up" style="--delay: 100ms;">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            </div>
+                            <h3>Trung gian không đọc được techpack</h3>
+                            <p>Báo giá rất đẹp, nhưng không ai phân tích được chi số sợi hay mật độ dệt. Sai sót kỹ thuật chỉ lộ ra khi hàng đã sản xuất hàng loạt.</p>
+                        </div>
+                        <div class="service-card reveal-slide-up" style="--delay: 200ms;">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            </div>
+                            <h3>Chất lượng hàng loạt khác xa mẫu duyệt</h3>
+                            <p>Không có người kiểm hàng độc lập tại xưởng, lỗi vải và đường may chỉ được phát hiện khi container đã cập cảng — quá muộn để xử lý.</p>
+                        </div>
+                        <div class="service-card reveal-slide-up" style="--delay: 300ms;">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <h3>Trễ tiến độ, vỡ kế hoạch bán hàng</h3>
+                            <p>Không ai bám tiến độ tại nhà máy và điều phối chứng từ xuất khẩu, một khâu chậm là cả chuỗi cung ứng phía sau đổ theo.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Services Quick Preview -->
-            <section class="section-padding" style="background-color: var(--bg-primary);">
+            <section class="section-padding" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
                 <div class="container">
                     <div class="section-header">
                         <span class="badge badge-sage">Dịch vụ cốt lõi</span>
@@ -2538,7 +2840,13 @@
                     <div class="cta-container">
                         <h2>Xây dựng chuỗi cung ứng dệt may chuyên nghiệp cùng Bedding Sourcing</h2>
                         <p>Chúng tôi giúp loại bỏ các rủi ro về chất lượng mẫu và trễ tiến độ vận chuyển hàng. Nhận báo giá sourcing chi tiết ngay hôm nay.</p>
-                        <a href="#lien-he" class="btn btn-accent">Nhận báo giá sourcing</a>
+                        <form class="quick-form" id="quickForm">
+                            <input type="text" id="qname" name="fullname" class="form-control" placeholder="Họ và tên" autocomplete="name" required>
+                            <input type="email" id="qemail" name="email" class="form-control" placeholder="Email công việc" autocomplete="email" required>
+                            <textarea id="qmessage" name="message" class="form-control" placeholder="Bạn cần sourcing gì? (chất liệu, số lượng, thị trường...)" required></textarea>
+                            <button type="submit" class="btn btn-accent" id="quickSubmitBtn">Nhận báo giá sourcing</button>
+                            <p class="quick-form-note">Phản hồi trong vòng 24 giờ làm việc.</p>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -2566,7 +2874,7 @@
                             <p>Chúng tôi tập trung kết nối, thương thảo giá gốc nhà máy, giám sát tiến độ may mẫu, kiểm hàng độc lập (QC) và điều phối hải quan xuất nhập khẩu ủy thác chuyên nghiệp. Với mạng lưới đối tác sâu rộng tại các vùng nguyên liệu dệt may hàng đầu Việt Nam, Trung Quốc và Ấn Độ, chúng tôi đảm bảo dòng chảy sản xuất của doanh nghiệp luôn được duy trì liên tục và tối ưu chi phí.</p>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img loading="lazy" decoding="async" src="assets/img/about/02_toi_uu_gia_tri.jpg?v=2" alt="Yarn spools spinning">
+                            <img loading="lazy" decoding="async" src="assets/img/about/02_toi_uu_gia_tri.jpg?v=3" alt="Yarn spools spinning">
                         </div>
                     </div>
                 </div>
@@ -2577,7 +2885,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img loading="lazy" decoding="async" src="assets/img/about/03_dinh_huong_tuong_lai.jpg?v=2" alt="Detailed sewing process">
+                            <img loading="lazy" decoding="async" src="assets/img/about/03_dinh_huong_tuong_lai.jpg?v=3" alt="Detailed sewing process">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Định hướng tương lai</span>
@@ -2754,8 +3062,19 @@
                             </ul>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img loading="lazy" decoding="async" src="assets/img/services/01_cung_ung_toan_dien.jpg?v=2" alt="Factory machinery automation">
+                            <img loading="lazy" decoding="async" src="assets/img/services/01_cung_ung_toan_dien.jpg?v=3" alt="Factory machinery automation">
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page CTA -->
+            <section class="cta-section section-padding">
+                <div class="container">
+                    <div class="cta-container">
+                        <h2>Chưa chắc dịch vụ nào phù hợp với bạn?</h2>
+                        <p>Mô tả nhu cầu của bạn — chúng tôi sẽ đề xuất giải pháp phù hợp và phản hồi trong 24 giờ làm việc.</p>
+                        <a href="#lien-he" class="btn btn-accent">Gửi yêu cầu sourcing</a>
                     </div>
                 </div>
             </section>
@@ -2818,7 +3137,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img loading="lazy" decoding="async" src="assets/img/process/01_kiem_soat_chat_luong.jpg?v=2" alt="Testing laboratory checks">
+                            <img loading="lazy" decoding="async" src="assets/img/process/01_kiem_soat_chat_luong.jpg?v=3" alt="Testing laboratory checks">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Quy chuẩn kiểm soát</span>
@@ -2831,6 +3150,17 @@
                                 <li><strong>3. Nghiệm thu đóng gói (Final Inspection):</strong> Rút mẫu ngẫu nhiên theo công thức thống kê MIL-STD-105E để đánh giá tổng thể bao bì nhãn mác và niêm phong thùng carton.</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page CTA -->
+            <section class="cta-section section-padding">
+                <div class="container">
+                    <div class="cta-container">
+                        <h2>Bắt đầu từ Bước 1 ngay hôm nay</h2>
+                        <p>Gửi định hướng chất liệu, số lượng dự kiến và thị trường mục tiêu — chúng tôi tiếp nhận và tư vấn khung triển khai phù hợp.</p>
+                        <a href="#lien-he" class="btn btn-accent">Gửi nhu cầu của bạn</a>
                     </div>
                 </div>
             </section>
@@ -2852,55 +3182,61 @@
                     <div class="products-grid">
                         <!-- Product 1 -->
                         <div class="product-card reveal-slide-up" style="--delay: 100ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/01_ga_trai_giuong.jpg?v=2" alt="Ga trải giường cao cấp">
+                            <img loading="lazy" decoding="async" src="assets/img/products/01_ga_trai_giuong.jpg?v=3" alt="Ga trải giường cao cấp">
                             <div class="product-content">
                                 <h3>Ga trải giường</h3>
                                 <p>Chất liệu Cotton Sateen 40s/60s/80s, Tencel Lyocell sinh học, Bamboo Silk kháng khuẩn, Linen thô tự nhiên...</p>
+                                <a href="#lien-he" class="product-cta" data-service="bedding-b2b">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                         
                         <!-- Product 2 -->
                         <div class="product-card reveal-slide-up" style="--delay: 200ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/02_vo_chan_vo_goi.jpg?v=2" alt="Vỏ chăn và vỏ gối tinh tế">
+                            <img loading="lazy" decoding="async" src="assets/img/products/02_vo_chan_vo_goi.jpg?v=3" alt="Vỏ chăn và vỏ gối tinh tế">
                             <div class="product-content">
                                 <h3>Vỏ chăn & Vỏ gối</h3>
                                 <p>Các dòng vỏ chăn thêu họa tiết nghệ thuật, trơn màu tối giản phong cách Bắc Âu, jacquard hoặc dệt sọc satin khách sạn.</p>
+                                <a href="#lien-he" class="product-cta" data-service="bedding-b2b">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                         
                         <!-- Product 3 -->
                         <div class="product-card reveal-slide-up" style="--delay: 300ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/03_ruot_chan_ruot_goi.jpg?v=2" alt="Ruột gối ruột chăn siêu mềm">
+                            <img loading="lazy" decoding="async" src="assets/img/products/03_ruot_chan_ruot_goi.jpg?v=3" alt="Ruột gối ruột chăn siêu mềm">
                             <div class="product-content">
                                 <h3>Ruột chăn & Ruột gối</h3>
                                 <p>Bông Microfiber siêu mịn giả lông vũ, ruột bông tự nhiên kháng khuẩn, lông vũ ngỗng tinh khiết đạt chuẩn lọc bụi quốc tế.</p>
+                                <a href="#lien-he" class="product-cta" data-service="bedding-b2b">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                         
                         <!-- Product 4 -->
                         <div class="product-card reveal-slide-up" style="--delay: 100ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/04_dem_va_topper.jpg?v=2" alt="Đệm và topper cao cấp">
+                            <img loading="lazy" decoding="async" src="assets/img/products/04_dem_va_topper.jpg?v=3" alt="Đệm và topper cao cấp">
                             <div class="product-content">
                                 <h3>Đệm & Topper</h3>
                                 <p>Đệm lò xo túi độc lập nâng đỡ 7 vùng cơ thể, đệm cao su thiên nhiên 100% và topper lông vũ êm ái tiêu chuẩn khách sạn 5 sao.</p>
+                                <a href="#lien-he" class="product-cta" data-service="bedding-b2b">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                         
                         <!-- Product 5 -->
                         <div class="product-card reveal-slide-up" style="--delay: 200ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/05_khan_do_vai_khach_san.jpg?v=2" alt="Khăn tắm và đồ vải khách sạn">
+                            <img loading="lazy" decoding="async" src="assets/img/products/05_khan_do_vai_khach_san.jpg?v=3" alt="Khăn tắm và đồ vải khách sạn">
                             <div class="product-content">
                                 <h3>Khăn & Đồ vải khách sạn</h3>
                                 <p>Khăn tắm cotton sợi đôi (double-loop) dệt mật độ cao thấm hút nước tốt, áo choàng tắm tổ ong, dép buồng phòng và váy giường.</p>
+                                <a href="#lien-he" class="product-cta" data-service="hotel-linen">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                         
                         <!-- Product 6 -->
                         <div class="product-card reveal-slide-up" style="--delay: 300ms;">
-                            <img loading="lazy" decoding="async" src="assets/img/products/06_rem_tham_trang_tri.jpg?v=2" alt="Rèm thảm trang trí">
+                            <img loading="lazy" decoding="async" src="assets/img/products/06_rem_tham_trang_tri.jpg?v=3" alt="Rèm thảm trang trí">
                             <div class="product-content">
                                 <h3>Rèm, Thảm & Dệt gia dụng</h3>
                                 <p>Rèm cản sáng chống tia UV chất liệu linen mềm mại, thảm cotton dệt tay trang trí phòng khách và thảm trải sàn dệt vòng.</p>
+                                <a href="#lien-he" class="product-cta" data-service="bedding-b2b">Yêu cầu báo giá →</a>
                             </div>
                         </div>
                     </div>
@@ -2956,8 +3292,19 @@
                             </div>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img loading="lazy" decoding="async" src="assets/img/specs/01_tieu_chuan_chat_lieu.jpg?v=2" alt="Công nghệ dệt vải hiện đại">
+                            <img loading="lazy" decoding="async" src="assets/img/specs/01_tieu_chuan_chat_lieu.jpg?v=3" alt="Công nghệ dệt vải hiện đại">
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page CTA -->
+            <section class="cta-section section-padding">
+                <div class="container">
+                    <div class="cta-container">
+                        <h2>Cần báo giá cho danh mục nào?</h2>
+                        <p>Cho chúng tôi biết chất liệu, số lượng và thị trường mục tiêu — bạn sẽ nhận thông số vải và khung giá chi tiết.</p>
+                        <a href="#lien-he" class="btn btn-accent">Nhận thông số &amp; báo giá</a>
                     </div>
                 </div>
             </section>
@@ -3023,7 +3370,7 @@
                             </div>
                         </div>
                         <div class="benefits-media reveal-slide-right">
-                            <img loading="lazy" decoding="async" src="assets/img/advantages/01_nang_luc_san_xuat.jpg?v=2" alt="Quy trình dệt may công nghiệp">
+                            <img loading="lazy" decoding="async" src="assets/img/advantages/01_nang_luc_san_xuat.jpg?v=3" alt="Quy trình dệt may công nghiệp">
                         </div>
                     </div>
                 </div>
@@ -3034,7 +3381,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img loading="lazy" decoding="async" src="assets/img/advantages/02_nguon_cung_kho_bai.png?v=2" alt="Clean modern warehouse storage">
+                            <img loading="lazy" decoding="async" src="assets/img/advantages/02_nguon_cung_kho_bai.jpg?v=3" alt="Clean modern warehouse storage">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Nguồn cung & Kho bãi</span>
@@ -3042,6 +3389,17 @@
                             <p>Chúng tôi đại diện tìm nguồn và điều phối đơn hàng tại các vùng trọng điểm dệt may của cả nước như: Nam Định (cường quốc dệt thoi chăn ga), Hải Phòng (trọng điểm may mặc xuất khẩu), Bình Dương & Đồng Nai (các tổ hợp dệt sợi hóa học công nghệ cao).</p>
                             <p>Dịch vụ quản trị kho bãi của Bedding Sourcing giúp thu gom hàng lẻ (LCL) từ nhiều nhà cung cấp khác nhau, gom tải thành container đầy (FCL) đóng gói cẩn thận chống ẩm mốc trước khi vận chuyển tàu biển quốc tế, giúp doanh nghiệp tiết kiệm đến 30% chi phí vận chuyển riêng lẻ.</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page CTA -->
+            <section class="cta-section section-padding">
+                <div class="container">
+                    <div class="cta-container">
+                        <h2>Hãy để chúng tôi chứng minh bằng dự án của bạn</h2>
+                        <p>Trao đổi trực tiếp với chuyên gia sourcing về nhu cầu của bạn — miễn phí và không ràng buộc.</p>
+                        <a href="#lien-he" class="btn btn-accent">Trao đổi với chuyên gia sourcing</a>
                     </div>
                 </div>
             </section>
@@ -3105,7 +3463,7 @@
                                     </div>
                                     <div class="detail-content">
                                         <div class="detail-label">Số điện thoại liên hệ</div>
-                                        <div class="detail-value"><a href="tel:0933126162" style="color: var(--accent);">0933 126 162</a></div>
+                                        <div class="detail-value"><a href="tel:+84933126162" style="color: var(--accent);">+84 933 126 162</a> <span style="color: var(--text-tertiary); font-size: 0.85rem;">(Zalo / WhatsApp)</span></div>
                                     </div>
                                 </div>
 
@@ -3137,22 +3495,31 @@
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="fullname">Họ tên của bạn *</label>
-                                        <input type="text" id="fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+                                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nguyễn Văn A" autocomplete="name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="phone">Số điện thoại *</label>
-                                        <input type="tel" id="phone" class="form-control" placeholder="0933126162" required>
+                                        <label for="company">Công ty / Tổ chức</label>
+                                        <input type="text" id="company" name="company" class="form-control" placeholder="ABC Trading Co." autocomplete="organization">
                                     </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <label for="email">Địa chỉ Email *</label>
-                                    <input type="email" id="email" class="form-control" placeholder="doi-tac@gmail.com" required>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Địa chỉ Email *</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com" autocomplete="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Số điện thoại / WhatsApp</label>
+                                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+84 933 126 162" autocomplete="tel">
+                                    </div>
                                 </div>
-                                
+
+                                <!-- Honeypot chống spam: người thật không thấy, bot sẽ điền -->
+                                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+
                                 <div class="form-group">
                                     <label for="serviceType">Nhu cầu Sourcing chính</label>
-                                    <select id="serviceType" class="form-control">
+                                    <select id="serviceType" name="service" class="form-control">
                                         <option value="bedding-b2b">Sourcing chăn ga gối đệm thương mại</option>
                                         <option value="mattress-machines">Sourcing máy móc, thiết bị & phụ tùng sản xuất nệm</option>
                                         <option value="private-label">Phát triển nhãn hàng riêng (Private Label)</option>
@@ -3164,10 +3531,18 @@
 
                                 <div class="form-group">
                                     <label for="message">Chi tiết nhu cầu (Chất liệu, số lượng, dòng máy...) *</label>
-                                    <textarea id="message" class="form-control" placeholder="Vui lòng mô tả rõ hơn về sản phẩm, số lượng dự kiến để chúng tôi chuẩn bị báo giá chính xác nhất..." required></textarea>
+                                    <textarea id="message" name="message" class="form-control" placeholder="Vui lòng mô tả rõ hơn về sản phẩm, số lượng dự kiến để chúng tôi chuẩn bị báo giá chính xác nhất..." required></textarea>
                                 </div>
-                                
-                                <button type="submit" class="btn form-submit-btn">Gửi yêu cầu tư vấn</button>
+
+                                <div class="form-group form-consent">
+                                    <label class="consent-label">
+                                        <input type="checkbox" id="consent" name="consent" required>
+                                        <span>Tôi đồng ý với <a href="#chinh-sach-bao-mat">Chính sách bảo mật</a></span>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn form-submit-btn" id="formSubmitBtn">Gửi yêu cầu tư vấn</button>
+                                <p class="form-note">Phản hồi trong vòng 24 giờ làm việc.</p>
                             </form>
                         </div>
                     </div>
@@ -3228,6 +3603,30 @@
                             <div class="faq-answer">
                                 <div class="faq-answer-inner">
                                     Tất cả máy móc thiết bị ngành nệm (máy lò xo túi, máy chần đa kim, máy CNC...) do Bedding Sourcing kết nối sourcing nhập khẩu đều được bảo hành kỹ thuật chính hãng 12 tháng. Chúng tôi hỗ trợ lắp đặt, hiệu chỉnh phần mềm PLC và cam kết cung ứng linh kiện/phụ tùng thay thế chính hãng tối thiểu 5 năm từ ngày bàn giao dây chuyền sản xuất.
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                <span>Bedding Sourcing hỗ trợ những thị trường xuất khẩu nào?</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Chúng tôi hỗ trợ chứng từ xuất khẩu đi Mỹ, EU (C/O Form B, Form EUR.1), ASEAN (Form D) và Trung Quốc (Form E), cùng mạng lưới nguyên liệu tại Việt Nam, Trung Quốc và Ấn Độ. Đội ngũ trực tiếp điều phối kiểm nghiệm bên thứ ba theo yêu cầu của từng thị trường.
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                <span>Quy trình hợp tác bắt đầu như thế nào?</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Bạn gửi yêu cầu qua form (chất liệu, số lượng dự kiến, target price nếu có). Chúng tôi phản hồi trong 24 giờ làm việc, sau đó lập tài liệu kỹ thuật, gửi RFQ tới các nhà máy đạt tiêu chí và báo lại phương án kèm khung giá để bạn quyết định — bước tư vấn ban đầu hoàn toàn miễn phí.
                                 </div>
                             </div>
                         </details>
@@ -3329,6 +3728,162 @@
             </section>
         </div>
 
+        <!-- SPA PAGE: BLOG - VIETNAM SOURCING GUIDE (EN) -->
+        <div class="spa-page" id="page-blog-sourcing-guide">
+            <div class="page-banner">
+                <div class="container">
+                    <span class="badge">Sourcing guide · English</span>
+                    <h1>How to Source Bedding from Vietnam: A Buyer's Guide (2026)</h1>
+                    <p>Specs, certifications, MOQs, sampling, AQL inspection and export documents — everything a buyer needs to source bedding from Vietnam.</p>
+                </div>
+            </div>
+            <section class="section-padding" style="background-color: var(--bg-primary);">
+                <div class="container">
+                    <div class="policy-content">
+                        <p>Vietnam has become one of the world's most competitive origins for bed linen, duvets, mattresses and hospitality textiles. Labor quality is high, weaving and dyeing capacity has matured, and trade agreements give Vietnamese-origin goods favorable access to the EU and other markets. But sourcing here still rewards preparation: buyers who arrive with clear specifications and a disciplined process get better prices, better quality and far fewer surprises.</p>
+
+                        <h2>1. Start with a real specification, not a photo</h2>
+                        <p>The single biggest cause of failed bedding orders is a vague brief. A usable bedding specification covers:</p>
+                        <ul>
+                            <li><strong>Fiber and fabric construction:</strong> e.g. 100% cotton sateen, 60s yarn, 300TC; or Tencel Lyocell 40s, 300TC.</li>
+                            <li><strong>Dimensions and tolerances:</strong> finished sizes per market (US, EU and hotel sizes differ), with acceptable tolerances after washing.</li>
+                            <li><strong>Color:</strong> Pantone TPX/TCX references, not screen colors.</li>
+                            <li><strong>Construction details:</strong> stitch density, hem widths, closure type, embroidery or jacquard patterns.</li>
+                            <li><strong>Shrinkage and color-fastness requirements:</strong> especially for hotel laundry conditions.</li>
+                        </ul>
+                        <p>Factories quote against specifications — the tighter the spec, the more comparable and honest the quotes.</p>
+
+                        <h2>2. Understand what thread count really tells you</h2>
+                        <p>Thread count (TC) is the most misused number in bedding. Two fabrics with the same TC can feel completely different depending on yarn count (40s vs 80s), ply and weave. See our guide <a href="#blog-thread-count">Thread Count Explained</a>.</p>
+
+                        <h2>3. Shortlist factories by certification — then verify capability</h2>
+                        <table>
+                            <thead><tr><th>Certificate</th><th>What it covers</th><th>Who usually requires it</th></tr></thead>
+                            <tbody>
+                                <tr><td>OEKO-TEX Standard 100</td><td>No harmful substances in the finished textile</td><td>Nearly all EU/US retail buyers</td></tr>
+                                <tr><td>BSCI / amfori</td><td>Social compliance and working conditions</td><td>European retailers and brands</td></tr>
+                                <tr><td>GOTS</td><td>Organic fiber content and processing</td><td>Organic and eco-positioned brands</td></tr>
+                                <tr><td>WRAP</td><td>Ethical manufacturing</td><td>US-oriented programs</td></tr>
+                            </tbody>
+                        </table>
+                        <p>Certificates are the entry ticket, not the decision. Before committing volume, verify capability on site: machinery, retained samples of comparable orders, and how the factory documents in-process quality.</p>
+
+                        <h2>4. Plan around realistic MOQs</h2>
+                        <ul>
+                            <li><strong>In-stock dyed fabrics:</strong> MOQs from roughly 500 meters per color — suitable for smaller brands and hotel projects.</li>
+                            <li><strong>Custom Pantone dyeing:</strong> usually 1,500–3,000 meters per color, because the dye-house needs a full batch.</li>
+                            <li><strong>Custom jacquard or dobby weaves:</strong> similar or higher, since the loom must be set up for your pattern.</li>
+                        </ul>
+                        <p>If your volumes are below custom-dye thresholds, design your range around stocked fabric bases and differentiate through embroidery, hems, packaging and private-label presentation.</p>
+
+                        <h2>5. Treat sampling as a gate, not a formality</h2>
+                        <p>Approve a <strong>Gold Sample</strong> — the master reference production will be measured against — before any bulk fabric is committed. Expect 7–10 working days for a technical sample once the spec is frozen. Wash-test it repeatedly, check shrinkage against tolerance, and compare color under daylight.</p>
+                        <div class="policy-box"><p><strong>Rule of thumb:</strong> any ambiguity that survives sampling will reappear in bulk production, multiplied by your order quantity.</p></div>
+
+                        <h2>6. Put independent inspection in the contract</h2>
+                        <p>Define quality numerically: the industry standard is <strong>AQL</strong> sampling under MIL-STD-105E / ISO 2859 — bedding programs commonly specify AQL 1.5 for major defects and 2.5 for minor defects, at three checkpoints:</p>
+                        <ul>
+                            <li><strong>Greige/fabric inspection</strong> before bulk cutting — weave faults and oil stains are cheapest to catch here.</li>
+                            <li><strong>In-line inspection</strong> during sewing — dimensional tolerance and stitch density.</li>
+                            <li><strong>Final random inspection</strong> before container loading — packaging, labeling and carton sealing.</li>
+                        </ul>
+                        <p>Crucially, the inspector should answer to <em>you</em>, not to the factory.</p>
+
+                        <h2>7. Get the export paperwork right</h2>
+                        <ul>
+                            <li><strong>C/O Form EUR.1</strong> — preferential access to the EU under EVFTA.</li>
+                            <li><strong>C/O Form B</strong> — general certificate of origin, commonly used for the US.</li>
+                            <li><strong>C/O Form D / Form E</strong> — ASEAN and ASEAN–China trade.</li>
+                        </ul>
+                        <p>Budget for third-party composition and safety testing where your market requires it, and decide Incoterms (FOB, CIF or DDP) early.</p>
+
+                        <h2>8. Consolidate shipments from multiple suppliers</h2>
+                        <p>Consolidating LCL lots into a full container (FCL) at a bonded warehouse cuts freight cost substantially versus shipping each lot separately — and gives one point of moisture-proof packing control before the sea voyage.</p>
+
+                        <h2>A realistic timeline</h2>
+                        <table>
+                            <thead><tr><th>Stage</th><th>Typical duration</th></tr></thead>
+                            <tbody>
+                                <tr><td>Spec &amp; tech pack finalization</td><td>3–7 days</td></tr>
+                                <tr><td>RFQ and factory comparison</td><td>5–10 days</td></tr>
+                                <tr><td>Gold Sample development</td><td>7–15 days</td></tr>
+                                <tr><td>Bulk production</td><td>25–45 days</td></tr>
+                                <tr><td>Inspection, documents &amp; loading</td><td>5–7 days</td></tr>
+                            </tbody>
+                        </table>
+                        <p>From frozen spec to loaded container, plan 45–75 days depending on fabric customization.</p>
+
+                        <div class="article-cta">
+                            <h2>Want this done for you?</h2>
+                            <p>Bedding Sourcing is a technical sourcing office in Ho Chi Minh City. We write the tech pack, shortlist certified factories, run independent AQL inspection and manage export documents. Reply within 24 working hours.</p>
+                            <a href="#lien-he" class="btn btn-accent">Send your sourcing requirement</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SPA PAGE: BLOG - THREAD COUNT EXPLAINED (EN) -->
+        <div class="spa-page" id="page-blog-thread-count">
+            <div class="page-banner">
+                <div class="container">
+                    <span class="badge">Technical guide · English</span>
+                    <h1>Thread Count Explained: What 300TC vs 600TC Really Means</h1>
+                    <p>Why yarn count and weave matter more than the TC number on the label — a technical guide for bedding buyers and hotel purchasers.</p>
+                </div>
+            </div>
+            <section class="section-padding" style="background-color: var(--bg-primary);">
+                <div class="container">
+                    <div class="policy-content">
+                        <p>Thread count is the most quoted — and most abused — number in the bedding industry. Buyers specify it, retailers advertise it, and factories know exactly how to inflate it. If you purchase bed linen professionally, understanding what TC does and doesn't measure will save you real money.</p>
+
+                        <h2>What thread count actually measures</h2>
+                        <p>Thread count is the number of yarns woven into one square inch of fabric: warp (lengthwise) plus weft (crosswise). A fabric with 150 warp and 150 weft yarns per inch is a true 300TC. That's all it measures — it says nothing about fiber quality, yarn fineness or weave, and those three factors matter more than the count itself.</p>
+
+                        <h2>Yarn count: the number that matters more</h2>
+                        <p>Yarn count (40s, 60s, 80s…) describes how fine the yarn is — higher numbers mean finer yarn. Fine yarn is what makes fabric smooth, light and drapey. And here is the physical limit that exposes marketing claims: <strong>only so many yarns fit in one square inch.</strong> With standard single-ply yarns, genuine thread counts top out around 500–600TC using very fine (80s–100s) yarn.</p>
+                        <div class="policy-box"><p><strong>So how do "1000TC" sheets exist?</strong> Multi-ply counting. A factory twists two or three coarse strands into each yarn, then counts every strand separately: 300 two-ply yarns become "600TC" on the label. The fabric is often heavier and coarser than an honest 300TC single-ply — but the number looks impressive.</p></div>
+
+                        <h2>Weave changes everything too</h2>
+                        <table>
+                            <thead><tr><th>Weave</th><th>Feel</th><th>Typical use</th></tr></thead>
+                            <tbody>
+                                <tr><td>Percale (plain weave)</td><td>Crisp, matte, breathable</td><td>Classic hotel sheets, warm climates</td></tr>
+                                <tr><td>Sateen</td><td>Smooth, lustrous, heavier drape</td><td>Premium retail bedding, 5-star hotels</td></tr>
+                                <tr><td>Jacquard / dobby</td><td>Woven-in patterns and stripes</td><td>Hospitality branding, premium duvet covers</td></tr>
+                            </tbody>
+                        </table>
+                        <p>A 250TC percale and a 300TC sateen in the same yarn are both excellent fabrics with completely different personalities. Choosing weave by end-use matters more than chasing a higher number.</p>
+
+                        <h2>What quality buyers actually specify</h2>
+                        <ul>
+                            <li><strong>Hotel program:</strong> 100% cotton percale, 60s single-ply, 250–300TC — durable through industrial laundering.</li>
+                            <li><strong>Premium retail:</strong> cotton sateen, 60s–80s single-ply, 300–600TC — smoothness and sheen.</li>
+                            <li><strong>Eco positioning:</strong> Tencel Lyocell 40s–60s, 300TC — cool touch and biodegradability story.</li>
+                            <li><strong>Relaxed/natural:</strong> linen 14s–17s, 100–150TC — texture is the point, TC is irrelevant.</li>
+                        </ul>
+                        <p>No serious hotel program specifies more than ~300TC. Hotels optimize for wash durability and cost per laundering cycle — the strongest hint that beyond a certain point, TC is a retail story rather than a quality measure.</p>
+
+                        <h2>How to verify what you're buying</h2>
+                        <ul>
+                            <li><strong>Ask for the full construction:</strong> fiber, yarn count, ply, TC and weave — in writing, on the spec sheet.</li>
+                            <li><strong>Insist on single-ply counting</strong> (or at least disclosure of ply) in your contract.</li>
+                            <li><strong>Test the sample:</strong> a third-party lab can verify actual thread count and composition for a modest fee.</li>
+                            <li><strong>Wash-test before bulk:</strong> shrinkage and hand-feel after 3–5 washes tell you more than any label.</li>
+                        </ul>
+
+                        <div class="article-cta">
+                            <h2>Specify fabrics with an engineer on your side</h2>
+                            <p>Bedding Sourcing writes fabric specifications, verifies construction at Vietnamese mills and runs independent AQL inspection — so the fabric you approved is the fabric that ships. Reply within 24 working hours.</p>
+                            <a href="#lien-he" class="btn btn-accent">Talk to a sourcing expert</a>
+                        </div>
+
+                        <p style="margin-top: 28px;"><a href="#blog-sourcing-guide">← Previous: How to Source Bedding from Vietnam</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -3354,6 +3909,8 @@
                         <li><a href="#quy-trinh">Quy trình</a></li>
                         <li><a href="#san-pham">Sản phẩm</a></li>
                         <li><a href="#loi-the">Lợi thế</a></li>
+                        <li><a href="#blog-sourcing-guide">Sourcing Guide (EN)</a></li>
+                        <li><a href="#blog-thread-count">Thread Count Explained (EN)</a></li>
                     </ul>
                 </div>
                 
@@ -3373,11 +3930,11 @@
                     <ul class="footer-contact-list">
                         <li class="footer-contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            <span>Hotline: 0933126162</span>
+                            <span>Hotline: <a href="tel:+84933126162">+84 933 126 162</a> (Zalo/WhatsApp)</span>
                         </li>
                         <li class="footer-contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            <span>Email: info@beddingsourcing.vn</span>
+                            <span>Email: <a href="mailto:info@beddingsourcing.vn">info@beddingsourcing.vn</a></span>
                         </li>
                         <li class="footer-contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -3391,6 +3948,9 @@
                         </a>
                         <a href="https://zalo.me/84933126162" target="_blank" class="footer-social-btn zalo" aria-label="Chat Zalo">
                             Zalo
+                        </a>
+                        <a href="https://wa.me/84933126162" target="_blank" rel="noopener" class="footer-social-btn whatsapp" aria-label="Chat WhatsApp">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -3417,8 +3977,17 @@
         </div>
     </div>
 
+    <!-- Mobile sticky CTA bar -->
+    <div class="mobile-cta-bar">
+        <a href="#lien-he" class="btn btn-accent">Gửi yêu cầu sourcing</a>
+        <a href="https://wa.me/84933126162" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp</a>
+    </div>
+
     <!-- Floating Contacts -->
     <div class="floating-contacts">
+        <a href="https://wa.me/84933126162" target="_blank" rel="noopener" class="contact-btn whatsapp" aria-label="Chat WhatsApp">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
         <a href="https://zalo.me/84933126162" target="_blank" class="contact-btn zalo" aria-label="Chat Zalo">
             Zalo
         </a>
@@ -3562,6 +4131,23 @@
             // which may not trigger a hashchange event).
             navLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
+            // 3c-0. GOOGLE ANALYTICS 4 — chỉ tải SAU khi khách chấp nhận cookie.
+            // TODO: tạo property GA4 tại analytics.google.com rồi điền Measurement ID
+            // dạng 'G-XXXXXXXXXX' vào hằng số dưới đây. Để trống = không tải gì cả.
+            const GA_MEASUREMENT_ID = '';
+            const loadAnalytics = () => {
+                if (!GA_MEASUREMENT_ID || window.__gaLoaded) return;
+                window.__gaLoaded = true;
+                const s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+                document.head.appendChild(s);
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function(){ dataLayer.push(arguments); };
+                gtag('js', new Date());
+                gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+            };
+
             // 3c. COOKIE CONSENT BANNER
             const cookieBanner = document.getElementById('cookieConsent');
             if (cookieBanner) {
@@ -3569,10 +4155,13 @@
                 try { consent = localStorage.getItem('bs_cookie_consent'); } catch (e) {}
                 if (!consent) {
                     setTimeout(() => cookieBanner.classList.add('show'), 1200);
+                } else if (consent === 'accepted') {
+                    loadAnalytics();
                 }
                 const setConsent = (value) => {
                     try { localStorage.setItem('bs_cookie_consent', value); } catch (e) {}
                     cookieBanner.classList.remove('show');
+                    if (value === 'accepted') loadAnalytics();
                 };
                 const acceptBtn = document.getElementById('cookieAccept');
                 const declineBtn = document.getElementById('cookieDecline');
@@ -3655,34 +4244,119 @@
                 }, 4000);
             };
 
-            sourcingForm.addEventListener('submit', (e) => {
+            // Endpoint tĩnh (tương thích GitHub Pages — không cần server riêng).
+            // FormSubmit gửi nội dung form về email bên dưới. LƯU Ý: lần gửi ĐẦU TIÊN,
+            // FormSubmit sẽ gửi 1 email kích hoạt tới hộp thư này — phải bấm xác nhận
+            // thì các lần gửi sau mới về thẳng inbox.
+            const FORM_ENDPOINT = 'https://formsubmit.co/ajax/info@beddingsourcing.vn';
+            const CONTACT_EMAIL = 'info@beddingsourcing.vn';
+
+            if (sourcingForm) sourcingForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
+                // Honeypot: nếu bot điền vào ô ẩn thì âm thầm bỏ qua
+                const honey = sourcingForm.querySelector('input[name="_honey"]');
+                if (honey && honey.value) return;
+
                 const fullname = document.getElementById('fullname').value.trim();
+                const company = document.getElementById('company').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const serviceType = document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text;
                 const message = document.getElementById('message').value.trim();
 
-                // Simple Vietnam Mobile Phone Regex validation
-                const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-                if (!phoneRegex.test(phone.replace(/\s+/g, ''))) {
-                    alert('Vui lòng nhập đúng định dạng số điện thoại Việt Nam (ví dụ: 0933126162).');
-                    return;
+                const submitBtn = document.getElementById('formSubmitBtn');
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Đang gửi...';
+
+                const payload = {
+                    'Họ tên': fullname,
+                    'Công ty': company || '(không điền)',
+                    'Email': email,
+                    'SĐT/WhatsApp': phone || '(không điền)',
+                    'Nhu cầu': serviceType,
+                    'Chi tiết': message,
+                    _subject: 'Yêu cầu sourcing mới từ website Bedding Sourcing',
+                    _template: 'table',
+                    _captcha: 'false'
+                };
+
+                try {
+                    const res = await fetch(FORM_ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+
+                    sourcingForm.reset();
+                    showToast(`Cảm ơn ${fullname}! Yêu cầu "${serviceType}" đã được gửi thành công. Chúng tôi sẽ phản hồi trong 24 giờ làm việc.`);
+
+                    // Ghi nhận chuyển đổi nếu GA4 đã được bật (sau cookie consent)
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { form_id: 'sourcingForm', service_type: serviceType });
+                    }
+                } catch (err) {
+                    // Fallback: mở email soạn sẵn để lead không bị mất
+                    const body = encodeURIComponent(
+                        `Họ tên: ${fullname}\nCông ty: ${company}\nEmail: ${email}\nSĐT/WhatsApp: ${phone}\nNhu cầu: ${serviceType}\n\nChi tiết:\n${message}`
+                    );
+                    showToast('Hệ thống gửi form đang gián đoạn — đang mở email để bạn gửi trực tiếp.');
+                    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Yêu cầu sourcing từ website')}&body=${body}`;
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
                 }
+            });
 
-                // Log details to console
-                console.log('Sourcing Request Submitted:', {
-                    fullname,
-                    phone,
-                    email,
-                    serviceType,
-                    message,
-                    timestamp: new Date().toISOString()
-                });
+            // 6b. QUICK FORM (trang chủ) — dùng chung endpoint tĩnh
+            const quickForm = document.getElementById('quickForm');
+            if (quickForm) quickForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const qname = document.getElementById('qname').value.trim();
+                const qemail = document.getElementById('qemail').value.trim();
+                const qmessage = document.getElementById('qmessage').value.trim();
+                const qBtn = document.getElementById('quickSubmitBtn');
+                const qBtnText = qBtn.textContent;
+                qBtn.disabled = true;
+                qBtn.textContent = 'Đang gửi...';
+                try {
+                    const res = await fetch(FORM_ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({
+                            'Họ tên': qname,
+                            'Email': qemail,
+                            'Yêu cầu': qmessage,
+                            _subject: 'Yêu cầu nhanh từ trang chủ Bedding Sourcing',
+                            _template: 'table',
+                            _captcha: 'false'
+                        })
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    quickForm.reset();
+                    showToast(`Cảm ơn ${qname}! Yêu cầu của bạn đã được gửi. Chúng tôi sẽ phản hồi trong 24 giờ làm việc.`);
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', { form_id: 'quickForm' });
+                    }
+                } catch (err) {
+                    const qBody = encodeURIComponent(`Họ tên: ${qname}\nEmail: ${qemail}\n\n${qmessage}`);
+                    showToast('Hệ thống gửi form đang gián đoạn — đang mở email để bạn gửi trực tiếp.');
+                    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Yêu cầu sourcing từ website')}&body=${qBody}`;
+                } finally {
+                    qBtn.disabled = false;
+                    qBtn.textContent = qBtnText;
+                }
+            });
 
-                sourcingForm.reset();
-                showToast(`Cảm ơn ${fullname}! Yêu cầu tư vấn "${serviceType}" đã được gửi thành công. Chúng tôi sẽ phản hồi trong 24 giờ.`);
+            // 6c. PRESELECT dịch vụ khi bấm CTA trên product card (SPA: form luôn có trong DOM)
+            document.addEventListener('click', (e) => {
+                const srvLink = e.target.closest('[data-service]');
+                if (srvLink) {
+                    const sel = document.getElementById('serviceType');
+                    if (sel) sel.value = srvLink.getAttribute('data-service');
+                }
             });
 
             // 7. IMAGE FALLBACK HANDLER - Prevent blank images
@@ -3720,8 +4394,13 @@
     </script>
     <script>
     (function(){
-      var DICT={"Điều hướng": "Navigation", "Trang chủ": "Home", "Giới thiệu": "About", "Dịch vụ": "Services", "Quy trình": "Process", "Sản phẩm": "Products", "Lợi thế": "Advantages", "Liên hệ": "Contact", "Nhận tư vấn sourcing": "Get sourcing consultation", "Nhận tư vấn": "Get consultation", "Gọi ngay": "Call now", "Chat Zalo": "Chat Zalo", "Giải pháp Sourcing Bedding cho thương hiệu quốc tế.": "Bedding sourcing solutions for international brands.", "Kết nối trực tiếp mạng lưới nhà máy sản xuất chăn ga gối đệm xuất khẩu hàng đầu tại Việt Nam. Đồng hành cùng bạn từ bản vẽ kỹ thuật đến chất lượng đầu ra.": "Direct access to Vietnam's leading export bedding factories. We partner with you from technical drawings to final output quality.", "Khám phá dịch vụ": "Explore services", "Sourcing chiến lược": "Strategic sourcing", "Kết nối 50+ xưởng sản xuất dệt may đạt tiêu chuẩn quốc tế.": "Access to 50+ textile factories meeting international standards.", "Phát triển mẫu thử độc quyền, kiểm nghiệm mật độ dệt sợi vải.": "Develop exclusive prototypes and test fabric weave density.", "Kiểm soát (QC)": "Quality control (QC)", "Giám sát và kiểm định chất lượng độc lập theo tiêu chuẩn AQL 1.5 / 2.5.": "Independent quality inspection to AQL 1.5 / 2.5 standards.", "Thiết bị ngành nệm": "Mattress equipment", "Sourcing máy móc, tư vấn dây chuyền dệt & phụ tùng ngành nệm.": "Sourcing machinery, weaving lines and mattress-industry spare parts.", "Cuộn trang để xem thêm": "Scroll to explore", "Định vị thương hiệu": "Brand positioning", "Kết nối chuỗi cung ứng vững chắc": "Building a resilient supply chain", "Chúng tôi là đối tác hỗ trợ các nhãn hàng, khách sạn và đơn vị nhập khẩu xây dựng nguồn cung chăn ga gối đệm (Bedding & Home Textile) ổn định. Bằng việc loại bỏ khâu trung gian phi kỹ thuật và trực tiếp giám sát chất lượng tại nhà máy dệt, Bedding Sourcing mang lại giải pháp tối ưu hóa chi phí hàng đầu.": "We help brands, hotels and importers build a stable supply of bedding and home textiles. By removing non-technical middlemen and supervising quality directly at the mills, Bedding Sourcing delivers leading cost-optimization solutions.", "Chúng tôi đảm nhận toàn bộ các khâu trung gian từ phân tích thông số sợi dệt đến giám sát kỹ thuật máy móc nhuộm màu phản ứng, đảm bảo chất lượng thành phẩm luôn đồng nhất trước khi đóng gói lên công hàng.": "We handle every intermediary step, from analyzing fabric yarn specifications to supervising reactive-dyeing machinery, ensuring consistent finished-product quality before goods are packed for shipment.", "Tìm hiểu sâu hơn": "Learn more", "Năng lực số liệu": "Our capabilities", "Cam kết năng lực của Bedding Sourcing": "Bedding Sourcing's commitments", "Ngày hoạt động chính thức (2023)": "Official launch date (2023)", "Cam kết chất lượng AQL 1.5 / 2.5": "Quality commitment AQL 1.5 / 2.5", "Mô hình phục vụ doanh nghiệp": "Business service model", "Dịch vụ cốt lõi": "Core services", "Những gì chúng tôi làm tốt nhất": "What we do best", "Cung cấp giải pháp chuỗi cung ứng bedding từ thiết kế sản phẩm mẫu đến bàn giao trọn gói kho bãi logistics.": "End-to-end bedding supply-chain solutions, from sample design to full warehousing and logistics handover.", "Tư vấn sourcing chăn ga gối đệm": "Bedding sourcing consulting", "Khảo sát, thẩm định và lựa chọn nhà máy, nhà sản xuất nguyên liệu (vải, bông, lông vũ) tối ưu.": "Survey, evaluate and select the optimal factories and raw-material suppliers (fabric, fill, down).", "Phát triển sản phẩm Private Label": "Private Label product development", "Hỗ trợ thiết kế, phát triển mẫu thử (prototype), kiểm nghiệm thông số sợi dệt độc quyền thương hiệu.": "Support design, prototype development and testing of brand-exclusive fabric specifications.", "Sourcing máy móc & thiết bị nệm": "Mattress machinery & equipment sourcing", "Tư vấn nhập khẩu dây chuyền dệt vỏ nệm, lắp đặt máy chần bông, máy sản xuất lò xo túi và cung ứng phụ tùng thay thế.": "Advisory on importing mattress-cover weaving lines, quilting machines, pocket-spring machines and supplying replacement parts.", "Xem đầy đủ 7 dịch vụ": "View all 7 services", "Xây dựng chuỗi cung ứng dệt may chuyên nghiệp cùng Bedding Sourcing": "Build a professional textile supply chain with Bedding Sourcing", "Chúng tôi giúp loại bỏ các rủi ro về chất lượng mẫu và trễ tiến độ vận chuyển hàng. Nhận báo giá sourcing chi tiết ngay hôm nay.": "We help eliminate risks of sample-quality issues and shipping delays. Get a detailed sourcing quote today.", "Nhận báo giá sourcing": "Get a sourcing quote", "Về chúng tôi": "About us", "Giới thiệu công ty": "Company overview", "Đối tác đại diện sourcing, cung ứng thiết bị sản xuất nệm và kiểm soát chất lượng bedding chuyên nghiệp tại Việt Nam.": "Your representative partner for sourcing, mattress-manufacturing equipment supply and professional bedding quality control in Vietnam.", "Lịch sử & Sứ mệnh": "History & Mission", "Bedding Sourcing là ai?": "Who is Bedding Sourcing?", "Được thành lập vào ngày": "Established on", "dưới tên pháp lý là": "under the legal name", ", chúng tôi hoạt động chính trong lĩnh vực": ", we operate primarily in the field of", "Hoạt động tư vấn quản lý": "Management consulting", "chuỗi cung ứng dệt may phòng ngủ.": "bedroom textile supply chains.", "Người đại diện pháp luật của chúng tôi là ông": "Our legal representative is Mr.", ". Dưới sự điều hành chiến lược của đội ngũ sáng lập am tường kỹ thuật dệt nhuộm, Bedding Sourcing đã nhanh chóng trở thành văn phòng sourcing đại diện được tin cậy bởi các thương hiệu lớn trong nước và quốc tế.": ". Under the strategic leadership of a founding team well-versed in weaving and dyeing technology, Bedding Sourcing has quickly become a trusted representative sourcing office for major domestic and international brands.", "Chúng tôi tập trung kết nối, thương thảo giá gốc nhà máy, giám sát tiến độ may mẫu, kiểm hàng độc lập (QC) và điều phối hải quan xuất nhập khẩu ủy thác chuyên nghiệp. Với mạng lưới đối tác sâu rộng tại các vùng nguyên liệu dệt may hàng đầu Việt Nam, Trung Quốc và Ấn Độ, chúng tôi đảm bảo dòng chảy sản xuất của doanh nghiệp luôn được duy trì liên tục và tối ưu chi phí.": "We focus on connecting with factories, negotiating factory-gate prices, supervising sampling progress, performing independent quality control (QC) and coordinating professional entrusted import-export customs. With an extensive partner network across leading textile-material hubs in Vietnam, China and India, we ensure your production flow stays continuous and cost-optimized.", "Định hướng tương lai": "Future direction", "Tầm nhìn, Sứ mệnh & Giá trị cốt lõi": "Vision, Mission & Core Values", "Chúng tôi định hình là đơn vị đồng hành kỹ thuật dệt may hơn là trung gian môi giới thuần túy. Giá trị cốt lõi của chúng tôi xoay quanh ba yếu tố chính:": "We position ourselves as a textile technical partner rather than a pure brokerage middleman. Our core values revolve around three key elements:", "1. Kỹ thuật chuyên sâu:": "1. Deep technical expertise:", "Phân tích chi số sợi dọc/ngang, mật độ dệt và công nghệ xử lý nhuộm màu bảo vệ môi trường trực tiếp tại nhà xưởng.": "Analyzing warp/weft yarn counts, weave density and eco-friendly dyeing technology directly at the factory.", "2. Minh bạch chuỗi cung ứng:": "2. Supply-chain transparency:", "Tiết lộ rõ ràng danh sách nhà máy dệt đạt chứng chỉ ISO/BSCI, giúp doanh nghiệp nắm quyền kiểm soát nguồn cung.": "Clearly disclosing the list of ISO/BSCI-certified mills, giving your business control over its supply.", "3. Đảm bảo chất lượng tuyệt đối:": "3. Absolute quality assurance:", "Thực hiện quy trình nghiệm thu hàng hóa theo tiêu chuẩn dung sai chất lượng quốc tế AQL 1.5/2.5.": "Performing goods acceptance following the international AQL 1.5/2.5 quality-tolerance standard.", "Mã ngành nghề & Lĩnh vực kinh doanh chi tiết": "Business codes & detailed lines of business", "Mã số thuế đăng ký:": "Registered tax code:", ". Trạng thái doanh nghiệp:": ". Business status:", "Đang hoạt động": "Active", ". Dưới đây là các mảng nghiệp vụ chuyên môn bổ trợ được cấp phép hoạt động:": ". Below are the licensed supporting business activities:", "Tư vấn quản lý chuỗi cung ứng (Bedding Sourcing)": "Supply-chain management consulting (Bedding Sourcing)", "Tư vấn Bán buôn máy móc, thiết bị và phụ tùng máy trong ngành Nệm": "Wholesale consulting for machinery, equipment and spare parts in the mattress industry", "Tư vấn phát triển sản phẩm chăn ga gối đệm": "Bedding product development consulting", "Sản xuất & Gia công hàng dệt sẵn xuất khẩu": "Manufacturing & processing of ready-made textiles for export", "Sản xuất thảm dệt, chăn ga, đệm lò xo": "Manufacturing woven carpets, bedding and spring mattresses", "Bán buôn chăn, ga, gối, đệm B2B": "B2B wholesale of blankets, sheets, pillows and mattresses", "Xuất nhập khẩu & Ủy thác xuất nhập khẩu hàng hóa": "Import-export & entrusted import-export of goods", "Quản lý kho bãi & lưu trữ đồ vải": "Warehousing & textile storage management", "Nghiên cứu thị trường & Phân tích xu hướng sợi dệt": "Market research & textile-trend analysis", "Thiết kế chuyên dụng nhãn mác, bao bì bedding": "Specialized design of bedding labels and packaging", "Dịch vụ giặt là, làm sạch sản phẩm dệt may mẫu": "Laundry and cleaning services for textile samples", "Năng lực cốt lõi": "Core capabilities", "Dịch vụ chuỗi cung ứng": "Supply-chain services", "Giải pháp tối ưu hóa nguồn lực sản xuất, đảm bảo chất lượng kỹ thuật dệt may và cung ứng thiết bị công nghiệp nặng ngành nệm.": "Solutions to optimize production resources, ensure textile technical quality and supply heavy industrial equipment for the mattress sector.", "Đánh giá năng lực máy móc thiết bị nhà xưởng dệt, tìm nguồn sợi dệt phù hợp (Cotton, Tencel, Bamboo, Linen) để tối ưu hóa giá thành sản phẩm nguyên bản. Chúng tôi đàm phán trực tiếp để lấy giá xưởng tốt nhất cùng các điều khoản thanh toán B2B linh hoạt.": "Assessing the machinery capacity of textile factories and sourcing suitable yarns (Cotton, Tencel, Bamboo, Linen) to optimize original product costs. We negotiate directly for the best factory prices and flexible B2B payment terms.", "Thiết kế bao bì, kiểu dáng may thêu, thông số kỹ thuật mật độ sợi (Thread Count), phát triển trọn bộ mẫu thử độc quyền (Gold Sample) chuẩn bị cho việc sản xuất hàng loạt. Đảm bảo bản quyền thiết kế được bảo vệ tuyệt đối trên thị trường.": "Designing packaging, stitching and embroidery styles, thread-count specifications, and developing a complete exclusive Gold Sample set to prepare for mass production. We ensure design copyright is fully protected in the market.", "Tư vấn & Sourcing thiết bị ngành Nệm": "Mattress equipment consulting & sourcing", "Bán buôn, nhập khẩu và cung cấp phụ tùng máy móc chuyên dụng trong ngành nệm như: Dây chuyền sản xuất lò xo túi tự động, máy chần gòn nhiều kim tốc độ cao, máy cắt nệm cao su CNC, máy đóng gói nệm nén chân không cuộn tròn (roll-pack) và các linh kiện thay thế chính hãng.": "Wholesale, import and supply of specialized mattress-industry machinery and parts such as: automatic pocket-spring production lines, high-speed multi-needle quilting machines, CNC foam-cutting machines, vacuum roll-pack mattress compression machines and genuine replacement components.", "Kết nối nhà máy và nhà cung cấp": "Connecting factories and suppliers", "Mở rộng truy cập trực tiếp tới các tổng xưởng dệt vải, cơ sở nhuộm hoàn tất vải khổ lớn đạt chứng chỉ xuất khẩu toàn cầu OEKO-TEX Standard 100, BSCI, WRAP. Hạn chế tối đa rủi ro từ các đơn vị thương mại trung gian thiếu năng lực kỹ thuật.": "Expanding direct access to large weaving mills and wide-width dyeing-and-finishing facilities certified to global export standards OEKO-TEX Standard 100, BSCI and WRAP. This minimizes risks from intermediary traders lacking technical capability.", "Kiểm soát chất lượng và mẫu (QC)": "Quality and sample control (QC)", "Đội ngũ QC độc lập thực hiện giám sát chất lượng tại xưởng trong suốt các khâu: Cắt vải, may thêu, nhồi bông, đóng thùng. Thực hiện nghiệm thu mẫu sản xuất và gửi báo cáo QC chi tiết (với ảnh chụp cận cảnh và thông số kỹ thuật thực tế) trước khi bốc dỡ container.": "An independent QC team supervises quality at the factory across every stage: fabric cutting, stitching and embroidery, filling and boxing. We perform production-sample acceptance and send detailed QC reports (with close-up photos and actual specifications) before container loading.", "Hỗ trợ xuất nhập khẩu và ủy thác": "Import-export and entrustment support", "Hỗ trợ đầy đủ thủ tục hải quan, đăng ký chứng nhận xuất xứ (C/O Form B, Form D, Form E, Form EUR.1), kiểm nghiệm thành phần vải tại bên thứ 3 và quản trị chuỗi logistics quốc tế nhằm tối ưu thời gian thông quan hàng hóa.": "Full support for customs procedures, certificate-of-origin registration (C/O Form B, Form D, Form E, Form EUR.1), third-party fabric-composition testing and international logistics management to optimize customs clearance time.", "Tư vấn danh mục và thị trường": "Portfolio and market consulting", "Phân tích biến động giá nguyên vật liệu sợi bông tự nhiên, sợi xenlulo tổng hợp. Thiết kế chính sách giá bán tối ưu (FOB, CIF, DDP) phù hợp với thị trường mục tiêu và xu hướng tiêu dùng giường ngủ xanh sinh học.": "Analyzing price fluctuations of natural cotton and synthetic cellulose yarns. Designing optimal pricing policies (FOB, CIF, DDP) aligned with target markets and the trend toward eco-friendly bedding.", "Chuyên môn thiết bị nệm": "Mattress equipment expertise", "Sourcing Máy móc & Thiết bị sản xuất Nệm Công nghiệp": "Sourcing industrial mattress-manufacturing machinery & equipment", "Chúng tôi cung cấp dịch vụ bán buôn, tư vấn đồng bộ dây chuyền sản xuất cơ khí chính xác phục vụ sản xuất nệm bông ép, nệm lò xo túi và nệm foam quy mô công nghiệp lớn.": "We provide wholesale and integrated advisory services for precision-engineered production lines for bonded-fiber, pocket-spring and foam mattresses at large industrial scale.", "Các hạng mục thiết bị chúng tôi đại diện tìm kiếm bao gồm:": "The equipment categories we source on your behalf include:", "• Máy cuốn lò xo túi tự động (Pocket Spring Coiler):": "• Automatic pocket-spring coiler:", "Tốc độ cao, tự động nối nhiệt điện tử, tiết kiệm thép lò xo.": "High speed, automatic electronic heat-bonding, saving spring steel.", "• Máy chần gòn đa kim (Multi-needle Quilting):": "• Multi-needle quilting machine:", "Sử dụng hệ điều khiển PLC thông minh dệt các họa tiết phức tạp trên lớp vỏ nệm cao cấp.": "Uses an intelligent PLC control system to weave complex patterns on premium mattress covers.", "• Máy cắt nệm cao su / foam CNC:": "• CNC latex / foam cutter:", "Đường cắt ngọt, tối thiểu hóa hao hụt nguyên liệu.": "Clean cuts that minimize material waste.", "• Máy nén cuộn chân không (Roll-Packer):": "• Vacuum roll-packer:", "Nén ép lực cao đóng gói nệm cuộn tròn trong hộp carton chuẩn xuất khẩu đi Mỹ và EU.": "High-pressure compression to roll-pack mattresses in export-standard cartons for the US and EU.", "• Linh kiện thay thế:": "• Replacement parts:", "Cung ứng đầu kim chần dệt, dao cắt CNC, bộ điều khiển khí nén SMC chính hãng.": "Supplying quilting needles, CNC cutting blades and genuine SMC pneumatic controllers.", "Vận hành chuẩn": "Standardized operations", "Quy trình làm việc": "Our workflow", "Quy trình 5 bước đảm bảo sự chính xác tối đa trong từng đơn hàng B2B.": "A 5-step process ensuring maximum precision in every B2B order.", "Tiếp nhận nhu cầu": "Receive requirements", "Phân tích sâu định hướng chất liệu vải của thương hiệu, chi phí hạn mức (target price), số lượng đặt hàng (MOQ) và hạn định giao hàng mong muốn.": "In-depth analysis of the brand's fabric direction, target price, order quantity (MOQ) and desired delivery deadline.", "Xây dựng tiêu chuẩn": "Set the standards", "Lập tài liệu kỹ thuật dệt may (Techpack) bao gồm chi tiết mật độ dệt, độ co rút vải, tiêu chuẩn may thêu chỉ số bền màu giặt là.": "Prepare a textile tech pack detailing weave density, fabric shrinkage, stitching standards and wash color-fastness.", "Tìm nguồn & So sánh": "Source & compare", "Gửi báo giá nhà máy (RFQ) tới các cơ sở sản xuất đạt tiêu chí kỹ thuật. Phân tích chi tiết giá thành, năng lực thanh toán và thời gian ra mẫu.": "Send RFQs to factories meeting the technical criteria and analyze pricing, payment terms and sampling lead time in detail.", "Làm mẫu & Kiểm soát": "Sample & control", "Sản xuất mẫu duyệt kỹ thuật và thêu thử. Đội ngũ kỹ sư tiến hành kiểm tra vải mộc và giám sát độc lập chất lượng trong quá trình may hàng loạt.": "Produce technical approval samples and trial embroidery. Our engineers inspect greige fabric and independently supervise quality during mass production.", "Hỗ trợ đơn hàng & Logistics": "Order support & logistics", "Kiểm đếm số lượng đóng thùng (final inspection), hỗ trợ khai hải quan xuất khẩu, vận chuyển giao hàng tận kho (DDP/FOB) an toàn.": "Final inspection and box counting, export customs support, and safe delivery to warehouse (DDP/FOB).", "Quy chuẩn kiểm soát": "Control standards", "Kiểm hàng độc lập theo tiêu chuẩn AQL 1.5 / 2.5": "Independent inspection to AQL 1.5 / 2.5 standards", "Đội ngũ giám định viên độc lập của chúng tôi sẽ trực tiếp có mặt tại nhà xưởng dệt may trong suốt quá trình sản xuất hàng loạt nhằm đảm bảo loại bỏ các lỗi ngoại quan phổ biến.": "Our independent inspectors are present at the factory throughout mass production to ensure common visual defects are eliminated.", "Quy trình kiểm tra kỹ thuật bao gồm ba công đoạn then chốt:": "The technical inspection process comprises three key stages:", "1. Khảo sát vải mộc (Fabric Inspection):": "1. Greige fabric inspection:", "Kiểm tra dệt lệch sợi, bụi bẩn dầu máy trên bề mặt vải trước khi cắt vải hàng loạt.": "Checking for misaligned weaves and machine-oil stains on the fabric surface before bulk cutting.", "2. Kiểm tra đường may (In-line Inspection):": "2. In-line seam inspection:", "Đo đạc dung sai kích thước ga giường, đếm mật độ mũi chỉ dệt thêu đảm bảo độ bền kéo khi giặt là công nghiệp.": "Measuring sheet dimensional tolerances and counting stitch density to ensure tensile durability under industrial laundering.", "3. Nghiệm thu đóng gói (Final Inspection):": "3. Final packaging inspection:", "Rút mẫu ngẫu nhiên theo công thức thống kê MIL-STD-105E để đánh giá tổng thể bao bì nhãn mác và niêm phong thùng carton.": "Random sampling per the MIL-STD-105E statistical method to assess overall packaging, labeling and carton sealing.", "Sản phẩm xuất khẩu": "Export products", "Danh mục sản phẩm Sourcing": "Sourcing product catalog", "Sản phẩm chăn ga gối đệm cao cấp được thiết kế theo chuẩn kỹ thuật quốc tế.": "Premium bedding products designed to international technical standards.", "Ga trải giường": "Bed sheets", "Chất liệu Cotton Sateen 40s/60s/80s, Tencel Lyocell sinh học, Bamboo Silk kháng khuẩn, Linen thô tự nhiên...": "Cotton Sateen 40s/60s/80s, bio-based Tencel Lyocell, antibacterial Bamboo Silk, natural raw Linen and more.", "Vỏ chăn & Vỏ gối": "Duvet covers & pillowcases", "Các dòng vỏ chăn thêu họa tiết nghệ thuật, trơn màu tối giản phong cách Bắc Âu, jacquard hoặc dệt sọc satin khách sạn.": "Duvet covers with artistic embroidery, minimalist Nordic solids, jacquard or hotel satin-stripe weaves.", "Ruột chăn & Ruột gối": "Duvet & pillow inserts", "Bông Microfiber siêu mịn giả lông vũ, ruột bông tự nhiên kháng khuẩn, lông vũ ngỗng tinh khiết đạt chuẩn lọc bụi quốc tế.": "Ultra-fine down-alternative microfiber, antibacterial natural fillings, and pure goose down meeting international dust-filtration standards.", "Đệm & Topper": "Mattresses & toppers", "Đệm lò xo túi độc lập nâng đỡ 7 vùng cơ thể, đệm cao su thiên nhiên 100% và topper lông vũ êm ái tiêu chuẩn khách sạn 5 sao.": "Independent pocket-spring mattresses supporting 7 body zones, 100% natural latex mattresses and plush down toppers to 5-star hotel standards.", "Khăn & Đồ vải khách sạn": "Towels & hotel linens", "Khăn tắm cotton sợi đôi (double-loop) dệt mật độ cao thấm hút nước tốt, áo choàng tắm tổ ong, dép buồng phòng và váy giường.": "High-density double-loop cotton towels with strong absorbency, waffle bathrobes, room slippers and bed skirts.", "Rèm, Thảm & Dệt gia dụng": "Curtains, rugs & home textiles", "Rèm cản sáng chống tia UV chất liệu linen mềm mại, thảm cotton dệt tay trang trí phòng khách và thảm trải sàn dệt vòng.": "UV-blocking blackout curtains in soft linen, hand-woven cotton living-room rugs and loop-woven floor rugs.", "Thông số kỹ thuật": "Specifications", "Tiêu chuẩn chất liệu dệt chăn ga gối": "Bedding fabric material standards", "Chúng tôi tư vấn và tìm nguồn cung ứng vải bedding dựa trên hệ thông số kỹ thuật chuẩn hóa cho cả nhu cầu thương hiệu cao cấp và khách sạn dệt sọc công nghiệp nặng.": "We advise and source bedding fabrics based on standardized specifications for both premium brands and heavy-duty hotel stripe-weave needs.", "Tên Vải": "Fabric name", "Chi số sợi (S)": "Yarn count (S)", "Mật độ dệt (Thread Count)": "Weave density (Thread Count)", "Ứng dụng phổ biến": "Common applications", "Ga giường khách sạn 5 sao, bộ chăn ga gia đình cao cấp.": "5-star hotel bed sheets and premium family bedding sets.", "Chăn ga sinh học kháng khuẩn, mát lạnh tự nhiên cho da nhạy cảm.": "Antibacterial bio-based bedding, naturally cool for sensitive skin.", "Nhãn hàng organic sinh thái, tự phân hủy thân thiện môi trường.": "Eco organic brands, biodegradable and environmentally friendly.", "Linen Lanh thô": "Raw Linen", "Dòng sản phẩm mộc mạc xuất khẩu châu Âu, Bắc Mỹ.": "Rustic product line for European and North American export.", "Thế mạnh cạnh tranh": "Competitive strengths", "Lợi thế của chúng tôi": "Our advantages", "Vì sao Bedding Sourcing là sự lựa chọn hàng đầu của các thương hiệu bedding và nệm công nghiệp.": "Why Bedding Sourcing is the top choice for bedding brands and industrial mattress makers.", "Am hiểu sâu sắc ngành dệt gia dụng": "Deep expertise in home textiles", "Chúng tôi không chỉ là trung gian thương mại. Đội ngũ kỹ sư của chúng tôi am hiểu cặn kẽ về chỉ số chi số sợi (sợi 40s, 60s, 80s), mật độ dệt dọc ngang (warp/weft density), và kỹ thuật nhuộm màu phản ứng bảo vệ môi trường, hạn chế co rút và xù lông vải.": "We are more than a trading middleman. Our engineers deeply understand yarn counts (40s, 60s, 80s), warp/weft weave density, and eco-friendly reactive dyeing that limits shrinkage and pilling.", "Mạng lưới nhà cung cấp rộng lớn": "An extensive supplier network", "Hợp tác chặt chẽ với hàng chục nhà máy dệt kim, dệt thoi và gia công may mặc có quy mô sản xuất lớn, sở hữu đầy đủ chứng chỉ OEKO-TEX Standard 100, BSCI, GOTS. Giúp đối tác tiếp cận được chính sách giá xuất xưởng tốt nhất cùng MOQ tối ưu.": "We work closely with dozens of large-scale knitting, weaving and garment factories fully certified to OEKO-TEX Standard 100, BSCI and GOTS, giving partners the best factory-gate pricing and optimal MOQs.", "Năng lực Sourcing thiết bị sản xuất nệm chuyên sâu": "In-depth mattress-equipment sourcing capability", "Chúng tôi là một trong số rất ít đơn vị tại Việt Nam có khả năng tư vấn, sourcing, và cung ứng toàn bộ linh kiện cơ khí, phụ tùng điều khiển PLC và dây chuyền lắp ráp máy chần, máy cuộn lò xo từ các nhà sản xuất máy móc hàng đầu châu Á và châu Âu.": "We are one of very few firms in Vietnam able to advise, source and supply complete mechanical components, PLC control parts and assembly lines for quilting and spring-coiling machines from leading Asian and European manufacturers.", "Hỗ trợ trọn gói từ ý tưởng đến đơn hàng": "End-to-end support from idea to order", "Chúng tôi phụ trách toàn bộ chu kỳ sống của đơn hàng: May thử mẫu duyệt, thiết kế nhãn mác bao bì độc quyền, theo dõi tiến độ sản xuất, kiểm hàng và logistics quốc tế hải quan nhanh chóng.": "We manage the entire order lifecycle: sampling and approval, exclusive label and packaging design, production tracking, inspection, and fast international logistics and customs.", "Nguồn cung & Kho bãi": "Supply & warehousing", "Mạng lưới sản xuất dệt may trải rộng": "An extensive textile production network", "Chúng tôi đại diện tìm nguồn và điều phối đơn hàng tại các vùng trọng điểm dệt may của cả nước như: Nam Định (cường quốc dệt thoi chăn ga), Hải Phòng (trọng điểm may mặc xuất khẩu), Bình Dương & Đồng Nai (các tổ hợp dệt sợi hóa học công nghệ cao).": "We source and coordinate orders on your behalf across the country's key textile hubs such as: Nam Dinh (a powerhouse of woven bedding), Hai Phong (a key export garment center), and Binh Duong & Dong Nai (high-tech synthetic-fiber weaving complexes).", "Dịch vụ quản trị kho bãi của Bedding Sourcing giúp thu gom hàng lẻ (LCL) từ nhiều nhà cung cấp khác nhau, gom tải thành container đầy (FCL) đóng gói cẩn thận chống ẩm mốc trước khi vận chuyển tàu biển quốc tế, giúp doanh nghiệp tiết kiệm đến 30% chi phí vận chuyển riêng lẻ.": "Bedding Sourcing's warehousing service consolidates less-than-container loads (LCL) from multiple suppliers into full container loads (FCL), carefully moisture-proofed before international sea freight, helping businesses save up to 30% on separate shipping costs.", "Tư vấn miễn phí": "Free consultation", "Liên hệ với chúng tôi": "Contact us", "Điền nhu cầu tìm nguồn cung hoặc thiết bị máy móc ngành nệm của bạn để nhận báo giá & giải pháp tối ưu nhất.": "Tell us your sourcing or mattress-equipment needs to receive the best quote and solution.", "Thông tin pháp lý doanh nghiệp": "Company legal information", "Tên pháp lý đầy đủ": "Full legal name", "Mã số thuế": "Tax code", "Địa chỉ trụ sở chính": "Head office address", "23 Đường T4A, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam": "23 T4A Street, Tay Thanh Ward, Ho Chi Minh City, Vietnam", "Số điện thoại liên hệ": "Contact phone number", "Người đại diện pháp luật": "Legal representative", "Ngày bắt đầu hoạt động": "Business start date", "02/03/2023 (Tình trạng: Đang hoạt động)": "02/03/2023 (Status: Active)", "Họ tên của bạn *": "Your full name *", "Số điện thoại *": "Phone number *", "Địa chỉ Email *": "Email address *", "Nhu cầu Sourcing chính": "Primary sourcing need", "Chi tiết nhu cầu (Chất liệu, số lượng, dòng máy...) *": "Requirement details (material, quantity, machine type...) *", "Gửi yêu cầu tư vấn": "Send consultation request", "Nguyễn Văn A": "John Smith", "doi-tac@gmail.com": "partner@email.com", "Vui lòng mô tả rõ hơn về sản phẩm, số lượng dự kiến để chúng tôi chuẩn bị báo giá chính xác nhất...": "Please describe the product and expected quantity so we can prepare the most accurate quote...", "Sourcing chăn ga gối đệm thương mại": "Commercial bedding sourcing", "Sourcing máy móc, thiết bị & phụ tùng sản xuất nệm": "Mattress machinery, equipment & parts sourcing", "Phát triển nhãn hàng riêng (Private Label)": "Private Label development", "Setup đồ vải khách sạn / resort / villa": "Hotel / resort / villa linen setup", "Yêu cầu kiểm soát chất lượng (QC) & Hải quan": "Quality control (QC) & customs request", "Yêu cầu khác": "Other request", "Hỗ trợ đối tác": "Partner support", "Câu hỏi thường gặp B2B FAQs": "B2B frequently asked questions", "Giải đáp thắc mắc nhanh về thủ tục làm việc, may mẫu và vận hành đơn hàng chăn ga gối đệm xuất khẩu.": "Quick answers about working procedures, sampling and running export bedding orders.", "Số lượng đặt hàng tối thiểu (MOQ) trung bình là bao nhiêu?": "What is the average minimum order quantity (MOQ)?", "Đối với các loại vải dệt nhuộm có sẵn trong kho, MOQ dệt may chỉ từ 500 mét/màu. Đối với các đơn hàng nhuộm màu Pantone riêng hoặc đặt dệt các kiểu jacquard / dobby theo yêu cầu, MOQ dao động từ 1.500m đến 3.000m tùy thuộc vào chi số sợi sợi Cotton hay Bamboo dệt sẵn.": "For in-stock dyed fabrics, the textile MOQ starts from just 500 meters per color. For custom Pantone dyeing or made-to-order jacquard/dobby weaves, the MOQ ranges from 1,500m to 3,000m depending on the Cotton or Bamboo yarn count.", "Thời gian phát triển mẫu thử dệt may (Gold Sample) là bao lâu?": "How long does textile sample (Gold Sample) development take?", "Thời gian làm mẫu thử kỹ thuật trung bình từ 7 đến 10 ngày làm việc sau khi chốt tài liệu thông số kỹ thuật vải (density, thread count). Đối với các mẫu thêu dệt độc quyền, thời gian có thể kéo dài thêm 3-5 ngày để tinh chỉnh khuôn thêu CNC của nhà máy dệt.": "Technical sampling averages 7 to 10 working days after finalizing the fabric specification (density, thread count). For exclusive embroidered weaves, it may take an additional 3-5 days to fine-tune the factory's CNC embroidery molds.", "Bedding Sourcing có hỗ trợ thủ tục thông quan xuất khẩu đi Mỹ và EU không?": "Does Bedding Sourcing support export customs clearance to the US and EU?", "Có, chúng tôi cung cấp dịch vụ xuất nhập khẩu trọn gói và ủy thác xuất nhập khẩu. Chúng tôi trực tiếp chuẩn bị bộ hồ sơ khai báo hải quan, xin chứng nhận xuất xứ nguồn gốc (C/O Form B, Form EUR.1, Form D), hỗ trợ kiểm nghiệm không chứa chất độc hại đạt chuẩn kiểm định hải quan EU/Mỹ.": "Yes. We provide full and entrusted import-export services. We directly prepare customs declaration dossiers, obtain certificates of origin (C/O Form B, Form EUR.1, Form D) and support hazardous-substance-free testing meeting EU/US customs standards.", "Có chính sách bảo hành đối với máy móc thiết bị ngành nệm không?": "Is there a warranty for mattress-industry machinery and equipment?", "Tất cả máy móc thiết bị ngành nệm (máy lò xo túi, máy chần đa kim, máy CNC...) do Bedding Sourcing kết nối sourcing nhập khẩu đều được bảo hành kỹ thuật chính hãng 12 tháng. Chúng tôi hỗ trợ lắp đặt, hiệu chỉnh phần mềm PLC và cam kết cung ứng linh kiện/phụ tùng thay thế chính hãng tối thiểu 5 năm từ ngày bàn giao dây chuyền sản xuất.": "All mattress-industry machinery (pocket-spring machines, multi-needle quilters, CNC machines, etc.) sourced and imported through Bedding Sourcing comes with a 12-month genuine technical warranty. We support installation, PLC software calibration and commit to supplying genuine replacement parts for at least 5 years from production-line handover.", "Đối tác B2B tin cậy hàng đầu trong lĩnh vực tìm nguồn cung ứng chăn ga gối đệm, tư vấn kỹ thuật máy móc phụ tùng sản xuất nệm và đồ vải buồng phòng tại Việt Nam.": "A leading trusted B2B partner in bedding sourcing, mattress machinery and parts technical consulting, and hospitality linens in Vietnam.", "Danh mục nhanh": "Quick links", "Ngành nghề cốt lõi": "Core business lines", "Tư vấn quản lý nguồn cung B2B": "B2B supply management consulting", "Bán buôn máy móc thiết bị nệm": "Mattress machinery wholesale", "Sản xuất gia công hàng dệt sẵn": "Ready-made textile manufacturing", "Kiểm định chất lượng độc lập": "Independent quality inspection", "Ủy thác xuất nhập khẩu hải quan": "Entrusted import-export & customs", "Liên hệ trực tiếp": "Direct contact", "Trụ sở: 23 Đường T4A, P. Tây Thạnh, TP. Hồ Chí Minh": "HQ: 23 T4A Street, Tay Thanh Ward, Ho Chi Minh City", "© 2026 BEDDING SOURCING. Bảo lưu mọi quyền thương hiệu.": "© 2026 BEDDING SOURCING. All brand rights reserved.", "Chính sách bảo mật": "Privacy Policy", "Điều khoản & Cookie": "Terms & Cookies", "Từ chối": "Decline", "Chấp nhận": "Accept", "Chúng tôi sử dụng cookie để cải thiện trải nghiệm và phân tích lưu lượng truy cập. Bằng việc tiếp tục, bạn đồng ý với việc thu thập cookie theo": "We use cookies to improve your experience and analyze traffic. By continuing, you consent to the collection of cookies under our", "của chúng tôi.": ".", "Pháp lý": "Legal", "Chính sách bảo mật & Cookie": "Privacy & Cookie Policy", "Cam kết bảo vệ dữ liệu cá nhân của bạn theo pháp luật Việt Nam khi truy cập và sử dụng website Bedding Sourcing.": "Our commitment to protecting your personal data under Vietnamese law when you access and use the Bedding Sourcing website.", "Cập nhật lần cuối: 11/07/2026": "Last updated: 11/07/2026", "Chính sách này được xây dựng tuân theo": "This policy is built in accordance with", "(có hiệu lực từ 01/01/2026),": "(effective from 01/01/2026),", ", Luật An toàn thông tin mạng, Luật Giao dịch điện tử và Luật Bảo vệ quyền lợi người tiêu dùng.": ", the Law on Cybersecurity, the Law on E-Transactions and the Law on Protection of Consumer Rights.", "Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15": "Personal Data Protection Law No. 91/2025/QH15", "Nghị định 356/2025/NĐ-CP": "Decree 356/2025/ND-CP", "1. Đơn vị kiểm soát dữ liệu": "1. Data controller", "được vận hành bởi:": "is operated by:", "Mã số thuế:": "Tax code:", "Điện thoại:": "Phone:", "Địa chỉ: 23 Đường T4A, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam": "Address: 23 T4A Street, Tay Thanh Ward, Ho Chi Minh City, Vietnam", "Người đại diện pháp luật: Ông Tống Nguyên Anh": "Legal representative: Mr. Tong Nguyen Anh", "2. Dữ liệu cá nhân chúng tôi thu thập": "2. Personal data we collect", "2.1. Dữ liệu bạn cung cấp trực tiếp": "2.1. Data you provide directly", "Khi bạn gửi biểu mẫu tư vấn hoặc liên hệ với chúng tôi: họ và tên, số điện thoại, địa chỉ email, tên doanh nghiệp (nếu có) và nội dung yêu cầu tư vấn.": "When you submit a consultation form or contact us: full name, phone number, email address, company name (if any) and the content of your request.", "2.2. Dữ liệu thu thập tự động": "2.2. Data collected automatically", "Khi bạn truy cập website: địa chỉ IP, loại thiết bị và trình duyệt, hệ điều hành, các trang bạn xem, thời gian truy cập và dữ liệu từ cookie (xem Mục 5).": "When you visit the website: IP address, device and browser type, operating system, pages viewed, access time and cookie data (see Section 5).", "3. Mục đích thu thập và xử lý": "3. Purpose of collection and processing", "Tiếp nhận và phản hồi yêu cầu tư vấn, báo giá, chăm sóc khách hàng.": "Receiving and responding to consultation and quote requests, and customer care.", "Thực hiện và quản lý các giao dịch, hợp đồng cung ứng.": "Performing and managing transactions and supply contracts.", "Cải thiện nội dung, trải nghiệm và hiệu năng website.": "Improving website content, experience and performance.", "Gửi thông tin về sản phẩm, dịch vụ khi có sự đồng ý của bạn.": "Sending product and service information with your consent.", "Tuân thủ nghĩa vụ theo quy định pháp luật.": "Complying with legal obligations.", "4. Cơ sở pháp lý và sự đồng ý": "4. Legal basis and consent", "Chúng tôi chỉ xử lý dữ liệu cá nhân khi có": "We only process personal data with your", "sự đồng ý": "consent", "rút lại sự đồng ý": "withdraw consent", "của bạn hoặc trong các trường hợp được pháp luật cho phép. Bạn có quyền": "or in cases permitted by law. You have the right to", "bất kỳ lúc nào; việc rút lại không ảnh hưởng đến tính hợp pháp của hoạt động xử lý đã thực hiện trước đó.": "at any time; withdrawal does not affect the lawfulness of processing carried out beforehand.", "5. Cookie và công nghệ tương tự": "5. Cookies and similar technologies", "Website sử dụng cookie để ghi nhớ tùy chọn, phân tích lưu lượng và cải thiện trải nghiệm. Các loại cookie gồm:": "The website uses cookies to remember preferences, analyze traffic and improve experience. Cookie types include:", "Cookie cần thiết:": "Essential cookies:", "Cookie phân tích:": "Analytics cookies:", "đảm bảo website hoạt động cơ bản.": "ensure basic website functionality.", "giúp chúng tôi hiểu cách bạn sử dụng website (ẩn danh, tổng hợp).": "help us understand how you use the website (anonymized, aggregated).", "Khi truy cập lần đầu, bạn sẽ thấy thông báo để": "On your first visit, you will see a notice to", "chấp nhận hoặc từ chối": "accept or decline", "cookie. Bạn cũng có thể xóa hoặc chặn cookie trong cài đặt trình duyệt bất kỳ lúc nào; tuy nhiên một số chức năng có thể bị ảnh hưởng.": "cookies. You can also delete or block cookies in your browser settings at any time; however, some functions may be affected.", "6. Chia sẻ dữ liệu cho bên thứ ba": "6. Sharing data with third parties", "Chúng tôi": "We", "không mua bán": "do not sell", "dữ liệu cá nhân của bạn. Dữ liệu chỉ có thể được chia sẻ với: nhà cung cấp dịch vụ hỗ trợ vận hành website (lưu trữ, phân tích) theo thỏa thuận bảo mật; hoặc cơ quan nhà nước có thẩm quyền khi pháp luật yêu cầu.": "your personal data. Data may only be shared with: service providers that help operate the website (hosting, analytics) under confidentiality agreements; or competent state authorities when required by law.", "7. Chuyển dữ liệu ra nước ngoài": "7. Cross-border data transfer", "Website có thể sử dụng dịch vụ hạ tầng đặt tại nước ngoài. Trong trường hợp phát sinh chuyển dữ liệu cá nhân xuyên biên giới, chúng tôi cam kết tuân thủ các quy định của Luật Bảo vệ dữ liệu cá nhân và Nghị định hướng dẫn.": "The website may use infrastructure services located overseas. Where cross-border transfer of personal data occurs, we commit to complying with the Personal Data Protection Law and its guiding decree.", "8. Thời gian lưu trữ": "8. Retention period", "Dữ liệu cá nhân được lưu trữ trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo thời hạn luật định, sau đó được xóa hoặc ẩn danh một cách an toàn.": "Personal data is stored for as long as necessary to fulfill the above purposes or as required by law, after which it is securely deleted or anonymized.", "9. Bảo mật dữ liệu": "9. Data security", "Chúng tôi áp dụng các biện pháp kỹ thuật và quản lý hợp lý (kết nối HTTPS, phân quyền truy cập, sao lưu) nhằm bảo vệ dữ liệu khỏi truy cập, thay đổi hoặc tiết lộ trái phép.": "We apply reasonable technical and organizational measures (HTTPS connection, access control, backups) to protect data from unauthorized access, alteration or disclosure.", "10. Quyền của bạn đối với dữ liệu cá nhân": "10. Your rights over personal data", "Theo Luật Bảo vệ dữ liệu cá nhân, bạn có các quyền sau:": "Under the Personal Data Protection Law, you have the following rights:", "Quyền được biết về việc xử lý dữ liệu của mình.": "The right to be informed about the processing of your data.", "Quyền đồng ý hoặc không đồng ý với việc xử lý.": "The right to consent to or object to processing.", "Quyền truy cập, xem, chỉnh sửa dữ liệu.": "The right to access, view and correct data.", "Quyền rút lại sự đồng ý.": "The right to withdraw consent.", "Quyền yêu cầu xóa hoặc hạn chế xử lý dữ liệu.": "The right to request deletion or restriction of processing.", "Quyền phản đối việc xử lý dữ liệu.": "The right to object to processing.", "Quyền khiếu nại, tố cáo, khởi kiện và yêu cầu bồi thường theo quy định.": "The right to complain, denounce, litigate and claim compensation as prescribed.", "Để thực hiện các quyền trên, vui lòng liên hệ qua thông tin tại Mục 12.": "To exercise these rights, please contact us using the information in Section 12.", "11. Dữ liệu của trẻ em": "11. Children's data", "Website hướng tới đối tượng khách hàng doanh nghiệp (B2B) và không chủ đích thu thập dữ liệu của trẻ em dưới 16 tuổi. Việc xử lý dữ liệu trẻ em (nếu có) phải có sự đồng ý của cha, mẹ hoặc người giám hộ theo quy định pháp luật.": "The website targets business (B2B) customers and does not intentionally collect data from children under 16. Any processing of children's data must have the consent of a parent or legal guardian as prescribed by law.", "12. Liên hệ về dữ liệu cá nhân": "12. Personal data contact", "Mọi yêu cầu, câu hỏi hoặc khiếu nại liên quan đến dữ liệu cá nhân, vui lòng liên hệ:": "For any request, question or complaint regarding personal data, please contact:", "hoặc": "or", "13. Thay đổi chính sách": "13. Changes to this policy", "Chúng tôi có thể cập nhật Chính sách này theo thời gian. Phiên bản mới sẽ được đăng tại trang này kèm ngày cập nhật. Việc bạn tiếp tục sử dụng website sau khi cập nhật đồng nghĩa với việc bạn chấp nhận nội dung đã thay đổi.": "We may update this policy from time to time. New versions will be posted on this page with an updated date. Your continued use of the website after an update constitutes acceptance of the changes."}, TITLE={"vi": "Bedding Sourcing | Giải pháp Sourcing Chăn Ga Gối Đệm B2B Cao Cấp", "en": "Bedding Sourcing | Premium B2B Bedding Sourcing Solutions"}, KEY='bs_lang';
-      var lang='vi'; try{lang=localStorage.getItem(KEY)||'vi';}catch(e){}
+      var DICT={"Nhà máy đối tác đạt chuẩn quốc tế": "Partner factories meeting international standards", "MOQ thấp nhất mỗi màu vải": "Lowest MOQ per fabric color", "Ngày ra mẫu Gold Sample": "Days to Gold Sample", "Chuẩn kiểm hàng độc lập": "Independent inspection standard", "Rủi ro thường gặp": "Common risks", "Tự sourcing bedding thường gặp 3 rủi ro": "Three risks of sourcing bedding on your own", "Đây là những vấn đề chúng tôi nghe nhiều nhất từ các nhãn hàng, khách sạn và nhà nhập khẩu — và là lý do Bedding Sourcing tồn tại.": "These are the problems we hear most often from brands, hotels and importers — and the reason Bedding Sourcing exists.", "Trung gian không đọc được techpack": "Middlemen who can't read a tech pack", "Báo giá rất đẹp, nhưng không ai phân tích được chi số sợi hay mật độ dệt. Sai sót kỹ thuật chỉ lộ ra khi hàng đã sản xuất hàng loạt.": "The quotes look great, but nobody can analyze yarn counts or weave density. Technical errors only surface once mass production has started.", "Chất lượng hàng loạt khác xa mẫu duyệt": "Bulk quality far from the approved sample", "Không có người kiểm hàng độc lập tại xưởng, lỗi vải và đường may chỉ được phát hiện khi container đã cập cảng — quá muộn để xử lý.": "Without independent inspection at the factory, fabric and stitching defects are only found when the container reaches port — too late to fix.", "Trễ tiến độ, vỡ kế hoạch bán hàng": "Delays that break your sales plan", "Không ai bám tiến độ tại nhà máy và điều phối chứng từ xuất khẩu, một khâu chậm là cả chuỗi cung ứng phía sau đổ theo.": "With nobody tracking factory progress and export paperwork, one delayed step topples the whole supply chain behind it.", "Chưa chắc dịch vụ nào phù hợp với bạn?": "Not sure which service fits your needs?", "Mô tả nhu cầu của bạn — chúng tôi sẽ đề xuất giải pháp phù hợp và phản hồi trong 24 giờ làm việc.": "Describe your requirement — we'll propose the right solution and reply within 24 working hours.", "Gửi yêu cầu sourcing": "Send sourcing request", "Bắt đầu từ Bước 1 ngay hôm nay": "Start with Step 1 today", "Gửi định hướng chất liệu, số lượng dự kiến và thị trường mục tiêu — chúng tôi tiếp nhận và tư vấn khung triển khai phù hợp.": "Share your material direction, estimated quantity and target market — we'll review and advise a suitable execution plan.", "Gửi nhu cầu của bạn": "Tell us what you need", "Cần báo giá cho danh mục nào?": "Which category do you need a quote for?", "Cho chúng tôi biết chất liệu, số lượng và thị trường mục tiêu — bạn sẽ nhận thông số vải và khung giá chi tiết.": "Tell us the material, quantity and target market — you'll receive detailed fabric specs and a price range.", "Nhận thông số & báo giá": "Get specs & pricing", "Hãy để chúng tôi chứng minh bằng dự án của bạn": "Put us to the test with your project", "Trao đổi trực tiếp với chuyên gia sourcing về nhu cầu của bạn — miễn phí và không ràng buộc.": "Talk directly with a sourcing expert about your needs — free and with no obligation.", "Trao đổi với chuyên gia sourcing": "Talk to a sourcing expert", "Yêu cầu báo giá →": "Request a quote →", "Họ và tên": "Full name", "Email công việc": "Work email", "Bạn cần sourcing gì? (chất liệu, số lượng, thị trường...)": "What do you need to source? (material, quantity, market...)", "Bedding Sourcing hỗ trợ những thị trường xuất khẩu nào?": "Which export markets does Bedding Sourcing support?", "Chúng tôi hỗ trợ chứng từ xuất khẩu đi Mỹ, EU (C/O Form B, Form EUR.1), ASEAN (Form D) và Trung Quốc (Form E), cùng mạng lưới nguyên liệu tại Việt Nam, Trung Quốc và Ấn Độ. Đội ngũ trực tiếp điều phối kiểm nghiệm bên thứ ba theo yêu cầu của từng thị trường.": "We support export documentation for the US, EU (C/O Form B, Form EUR.1), ASEAN (Form D) and China (Form E), with a material network across Vietnam, China and India. Our team directly coordinates third-party testing per each market's requirements.", "Quy trình hợp tác bắt đầu như thế nào?": "How does the engagement process start?", "Bạn gửi yêu cầu qua form (chất liệu, số lượng dự kiến, target price nếu có). Chúng tôi phản hồi trong 24 giờ làm việc, sau đó lập tài liệu kỹ thuật, gửi RFQ tới các nhà máy đạt tiêu chí và báo lại phương án kèm khung giá để bạn quyết định — bước tư vấn ban đầu hoàn toàn miễn phí.": "You send a request via the form (material, estimated quantity, target price if available). We reply within 24 working hours, then prepare the technical documentation, send RFQs to qualified factories and come back with options and a price range for your decision — the initial consultation is completely free.", "Công ty / Tổ chức": "Company / Organization", "Số điện thoại / WhatsApp": "Phone / WhatsApp", "Tôi đồng ý với": "I agree to the", "Phản hồi trong vòng 24 giờ làm việc.": "We reply within 24 working hours.", "Điều hướng": "Navigation", "Trang chủ": "Home", "Giới thiệu": "About", "Dịch vụ": "Services", "Quy trình": "Process", "Sản phẩm": "Products", "Lợi thế": "Advantages", "Liên hệ": "Contact", "Nhận tư vấn sourcing": "Get sourcing consultation", "Nhận tư vấn": "Get consultation", "Gọi ngay": "Call now", "Chat Zalo": "Chat Zalo", "Giải pháp Sourcing Bedding cho thương hiệu quốc tế.": "Bedding sourcing solutions for international brands.", "Kết nối trực tiếp mạng lưới nhà máy sản xuất chăn ga gối đệm xuất khẩu hàng đầu tại Việt Nam. Đồng hành cùng bạn từ bản vẽ kỹ thuật đến chất lượng đầu ra.": "Direct access to Vietnam's leading export bedding factories. We partner with you from technical drawings to final output quality.", "Khám phá dịch vụ": "Explore services", "Sourcing chiến lược": "Strategic sourcing", "Kết nối 50+ xưởng sản xuất dệt may đạt tiêu chuẩn quốc tế.": "Access to 50+ textile factories meeting international standards.", "Phát triển mẫu thử độc quyền, kiểm nghiệm mật độ dệt sợi vải.": "Develop exclusive prototypes and test fabric weave density.", "Kiểm soát (QC)": "Quality control (QC)", "Giám sát và kiểm định chất lượng độc lập theo tiêu chuẩn AQL 1.5 / 2.5.": "Independent quality inspection to AQL 1.5 / 2.5 standards.", "Thiết bị ngành nệm": "Mattress equipment", "Sourcing máy móc, tư vấn dây chuyền dệt & phụ tùng ngành nệm.": "Sourcing machinery, weaving lines and mattress-industry spare parts.", "Cuộn trang để xem thêm": "Scroll to explore", "Định vị thương hiệu": "Brand positioning", "Kết nối chuỗi cung ứng vững chắc": "Building a resilient supply chain", "Chúng tôi là đối tác hỗ trợ các nhãn hàng, khách sạn và đơn vị nhập khẩu xây dựng nguồn cung chăn ga gối đệm (Bedding & Home Textile) ổn định. Bằng việc loại bỏ khâu trung gian phi kỹ thuật và trực tiếp giám sát chất lượng tại nhà máy dệt, Bedding Sourcing mang lại giải pháp tối ưu hóa chi phí hàng đầu.": "We help brands, hotels and importers build a stable supply of bedding and home textiles. By removing non-technical middlemen and supervising quality directly at the mills, Bedding Sourcing delivers leading cost-optimization solutions.", "Chúng tôi đảm nhận toàn bộ các khâu trung gian từ phân tích thông số sợi dệt đến giám sát kỹ thuật máy móc nhuộm màu phản ứng, đảm bảo chất lượng thành phẩm luôn đồng nhất trước khi đóng gói lên công hàng.": "We handle every intermediary step, from analyzing fabric yarn specifications to supervising reactive-dyeing machinery, ensuring consistent finished-product quality before goods are packed for shipment.", "Tìm hiểu sâu hơn": "Learn more", "Năng lực số liệu": "Our capabilities", "Cam kết năng lực của Bedding Sourcing": "Bedding Sourcing's commitments", "Ngày hoạt động chính thức (2023)": "Official launch date (2023)", "Cam kết chất lượng AQL 1.5 / 2.5": "Quality commitment AQL 1.5 / 2.5", "Mô hình phục vụ doanh nghiệp": "Business service model", "Dịch vụ cốt lõi": "Core services", "Những gì chúng tôi làm tốt nhất": "What we do best", "Cung cấp giải pháp chuỗi cung ứng bedding từ thiết kế sản phẩm mẫu đến bàn giao trọn gói kho bãi logistics.": "End-to-end bedding supply-chain solutions, from sample design to full warehousing and logistics handover.", "Tư vấn sourcing chăn ga gối đệm": "Bedding sourcing consulting", "Khảo sát, thẩm định và lựa chọn nhà máy, nhà sản xuất nguyên liệu (vải, bông, lông vũ) tối ưu.": "Survey, evaluate and select the optimal factories and raw-material suppliers (fabric, fill, down).", "Phát triển sản phẩm Private Label": "Private Label product development", "Hỗ trợ thiết kế, phát triển mẫu thử (prototype), kiểm nghiệm thông số sợi dệt độc quyền thương hiệu.": "Support design, prototype development and testing of brand-exclusive fabric specifications.", "Sourcing máy móc & thiết bị nệm": "Mattress machinery & equipment sourcing", "Tư vấn nhập khẩu dây chuyền dệt vỏ nệm, lắp đặt máy chần bông, máy sản xuất lò xo túi và cung ứng phụ tùng thay thế.": "Advisory on importing mattress-cover weaving lines, quilting machines, pocket-spring machines and supplying replacement parts.", "Xem đầy đủ 7 dịch vụ": "View all 7 services", "Xây dựng chuỗi cung ứng dệt may chuyên nghiệp cùng Bedding Sourcing": "Build a professional textile supply chain with Bedding Sourcing", "Chúng tôi giúp loại bỏ các rủi ro về chất lượng mẫu và trễ tiến độ vận chuyển hàng. Nhận báo giá sourcing chi tiết ngay hôm nay.": "We help eliminate risks of sample-quality issues and shipping delays. Get a detailed sourcing quote today.", "Nhận báo giá sourcing": "Get a sourcing quote", "Về chúng tôi": "About us", "Giới thiệu công ty": "Company overview", "Đối tác đại diện sourcing, cung ứng thiết bị sản xuất nệm và kiểm soát chất lượng bedding chuyên nghiệp tại Việt Nam.": "Your representative partner for sourcing, mattress-manufacturing equipment supply and professional bedding quality control in Vietnam.", "Lịch sử & Sứ mệnh": "History & Mission", "Bedding Sourcing là ai?": "Who is Bedding Sourcing?", "Được thành lập vào ngày": "Established on", "dưới tên pháp lý là": "under the legal name", ", chúng tôi hoạt động chính trong lĩnh vực": ", we operate primarily in the field of", "Hoạt động tư vấn quản lý": "Management consulting", "chuỗi cung ứng dệt may phòng ngủ.": "bedroom textile supply chains.", "Người đại diện pháp luật của chúng tôi là ông": "Our legal representative is Mr.", ". Dưới sự điều hành chiến lược của đội ngũ sáng lập am tường kỹ thuật dệt nhuộm, Bedding Sourcing đã nhanh chóng trở thành văn phòng sourcing đại diện được tin cậy bởi các thương hiệu lớn trong nước và quốc tế.": ". Under the strategic leadership of a founding team well-versed in weaving and dyeing technology, Bedding Sourcing has quickly become a trusted representative sourcing office for major domestic and international brands.", "Chúng tôi tập trung kết nối, thương thảo giá gốc nhà máy, giám sát tiến độ may mẫu, kiểm hàng độc lập (QC) và điều phối hải quan xuất nhập khẩu ủy thác chuyên nghiệp. Với mạng lưới đối tác sâu rộng tại các vùng nguyên liệu dệt may hàng đầu Việt Nam, Trung Quốc và Ấn Độ, chúng tôi đảm bảo dòng chảy sản xuất của doanh nghiệp luôn được duy trì liên tục và tối ưu chi phí.": "We focus on connecting with factories, negotiating factory-gate prices, supervising sampling progress, performing independent quality control (QC) and coordinating professional entrusted import-export customs. With an extensive partner network across leading textile-material hubs in Vietnam, China and India, we ensure your production flow stays continuous and cost-optimized.", "Định hướng tương lai": "Future direction", "Tầm nhìn, Sứ mệnh & Giá trị cốt lõi": "Vision, Mission & Core Values", "Chúng tôi định hình là đơn vị đồng hành kỹ thuật dệt may hơn là trung gian môi giới thuần túy. Giá trị cốt lõi của chúng tôi xoay quanh ba yếu tố chính:": "We position ourselves as a textile technical partner rather than a pure brokerage middleman. Our core values revolve around three key elements:", "1. Kỹ thuật chuyên sâu:": "1. Deep technical expertise:", "Phân tích chi số sợi dọc/ngang, mật độ dệt và công nghệ xử lý nhuộm màu bảo vệ môi trường trực tiếp tại nhà xưởng.": "Analyzing warp/weft yarn counts, weave density and eco-friendly dyeing technology directly at the factory.", "2. Minh bạch chuỗi cung ứng:": "2. Supply-chain transparency:", "Tiết lộ rõ ràng danh sách nhà máy dệt đạt chứng chỉ ISO/BSCI, giúp doanh nghiệp nắm quyền kiểm soát nguồn cung.": "Clearly disclosing the list of ISO/BSCI-certified mills, giving your business control over its supply.", "3. Đảm bảo chất lượng tuyệt đối:": "3. Absolute quality assurance:", "Thực hiện quy trình nghiệm thu hàng hóa theo tiêu chuẩn dung sai chất lượng quốc tế AQL 1.5/2.5.": "Performing goods acceptance following the international AQL 1.5/2.5 quality-tolerance standard.", "Mã ngành nghề & Lĩnh vực kinh doanh chi tiết": "Business codes & detailed lines of business", "Mã số thuế đăng ký:": "Registered tax code:", ". Trạng thái doanh nghiệp:": ". Business status:", "Đang hoạt động": "Active", ". Dưới đây là các mảng nghiệp vụ chuyên môn bổ trợ được cấp phép hoạt động:": ". Below are the licensed supporting business activities:", "Tư vấn quản lý chuỗi cung ứng (Bedding Sourcing)": "Supply-chain management consulting (Bedding Sourcing)", "Tư vấn Bán buôn máy móc, thiết bị và phụ tùng máy trong ngành Nệm": "Wholesale consulting for machinery, equipment and spare parts in the mattress industry", "Tư vấn phát triển sản phẩm chăn ga gối đệm": "Bedding product development consulting", "Sản xuất & Gia công hàng dệt sẵn xuất khẩu": "Manufacturing & processing of ready-made textiles for export", "Sản xuất thảm dệt, chăn ga, đệm lò xo": "Manufacturing woven carpets, bedding and spring mattresses", "Bán buôn chăn, ga, gối, đệm B2B": "B2B wholesale of blankets, sheets, pillows and mattresses", "Xuất nhập khẩu & Ủy thác xuất nhập khẩu hàng hóa": "Import-export & entrusted import-export of goods", "Quản lý kho bãi & lưu trữ đồ vải": "Warehousing & textile storage management", "Nghiên cứu thị trường & Phân tích xu hướng sợi dệt": "Market research & textile-trend analysis", "Thiết kế chuyên dụng nhãn mác, bao bì bedding": "Specialized design of bedding labels and packaging", "Dịch vụ giặt là, làm sạch sản phẩm dệt may mẫu": "Laundry and cleaning services for textile samples", "Năng lực cốt lõi": "Core capabilities", "Dịch vụ chuỗi cung ứng": "Supply-chain services", "Giải pháp tối ưu hóa nguồn lực sản xuất, đảm bảo chất lượng kỹ thuật dệt may và cung ứng thiết bị công nghiệp nặng ngành nệm.": "Solutions to optimize production resources, ensure textile technical quality and supply heavy industrial equipment for the mattress sector.", "Đánh giá năng lực máy móc thiết bị nhà xưởng dệt, tìm nguồn sợi dệt phù hợp (Cotton, Tencel, Bamboo, Linen) để tối ưu hóa giá thành sản phẩm nguyên bản. Chúng tôi đàm phán trực tiếp để lấy giá xưởng tốt nhất cùng các điều khoản thanh toán B2B linh hoạt.": "Assessing the machinery capacity of textile factories and sourcing suitable yarns (Cotton, Tencel, Bamboo, Linen) to optimize original product costs. We negotiate directly for the best factory prices and flexible B2B payment terms.", "Thiết kế bao bì, kiểu dáng may thêu, thông số kỹ thuật mật độ sợi (Thread Count), phát triển trọn bộ mẫu thử độc quyền (Gold Sample) chuẩn bị cho việc sản xuất hàng loạt. Đảm bảo bản quyền thiết kế được bảo vệ tuyệt đối trên thị trường.": "Designing packaging, stitching and embroidery styles, thread-count specifications, and developing a complete exclusive Gold Sample set to prepare for mass production. We ensure design copyright is fully protected in the market.", "Tư vấn & Sourcing thiết bị ngành Nệm": "Mattress equipment consulting & sourcing", "Bán buôn, nhập khẩu và cung cấp phụ tùng máy móc chuyên dụng trong ngành nệm như: Dây chuyền sản xuất lò xo túi tự động, máy chần gòn nhiều kim tốc độ cao, máy cắt nệm cao su CNC, máy đóng gói nệm nén chân không cuộn tròn (roll-pack) và các linh kiện thay thế chính hãng.": "Wholesale, import and supply of specialized mattress-industry machinery and parts such as: automatic pocket-spring production lines, high-speed multi-needle quilting machines, CNC foam-cutting machines, vacuum roll-pack mattress compression machines and genuine replacement components.", "Kết nối nhà máy và nhà cung cấp": "Connecting factories and suppliers", "Mở rộng truy cập trực tiếp tới các tổng xưởng dệt vải, cơ sở nhuộm hoàn tất vải khổ lớn đạt chứng chỉ xuất khẩu toàn cầu OEKO-TEX Standard 100, BSCI, WRAP. Hạn chế tối đa rủi ro từ các đơn vị thương mại trung gian thiếu năng lực kỹ thuật.": "Expanding direct access to large weaving mills and wide-width dyeing-and-finishing facilities certified to global export standards OEKO-TEX Standard 100, BSCI and WRAP. This minimizes risks from intermediary traders lacking technical capability.", "Kiểm soát chất lượng và mẫu (QC)": "Quality and sample control (QC)", "Đội ngũ QC độc lập thực hiện giám sát chất lượng tại xưởng trong suốt các khâu: Cắt vải, may thêu, nhồi bông, đóng thùng. Thực hiện nghiệm thu mẫu sản xuất và gửi báo cáo QC chi tiết (với ảnh chụp cận cảnh và thông số kỹ thuật thực tế) trước khi bốc dỡ container.": "An independent QC team supervises quality at the factory across every stage: fabric cutting, stitching and embroidery, filling and boxing. We perform production-sample acceptance and send detailed QC reports (with close-up photos and actual specifications) before container loading.", "Hỗ trợ xuất nhập khẩu và ủy thác": "Import-export and entrustment support", "Hỗ trợ đầy đủ thủ tục hải quan, đăng ký chứng nhận xuất xứ (C/O Form B, Form D, Form E, Form EUR.1), kiểm nghiệm thành phần vải tại bên thứ 3 và quản trị chuỗi logistics quốc tế nhằm tối ưu thời gian thông quan hàng hóa.": "Full support for customs procedures, certificate-of-origin registration (C/O Form B, Form D, Form E, Form EUR.1), third-party fabric-composition testing and international logistics management to optimize customs clearance time.", "Tư vấn danh mục và thị trường": "Portfolio and market consulting", "Phân tích biến động giá nguyên vật liệu sợi bông tự nhiên, sợi xenlulo tổng hợp. Thiết kế chính sách giá bán tối ưu (FOB, CIF, DDP) phù hợp với thị trường mục tiêu và xu hướng tiêu dùng giường ngủ xanh sinh học.": "Analyzing price fluctuations of natural cotton and synthetic cellulose yarns. Designing optimal pricing policies (FOB, CIF, DDP) aligned with target markets and the trend toward eco-friendly bedding.", "Chuyên môn thiết bị nệm": "Mattress equipment expertise", "Sourcing Máy móc & Thiết bị sản xuất Nệm Công nghiệp": "Sourcing industrial mattress-manufacturing machinery & equipment", "Chúng tôi cung cấp dịch vụ bán buôn, tư vấn đồng bộ dây chuyền sản xuất cơ khí chính xác phục vụ sản xuất nệm bông ép, nệm lò xo túi và nệm foam quy mô công nghiệp lớn.": "We provide wholesale and integrated advisory services for precision-engineered production lines for bonded-fiber, pocket-spring and foam mattresses at large industrial scale.", "Các hạng mục thiết bị chúng tôi đại diện tìm kiếm bao gồm:": "The equipment categories we source on your behalf include:", "• Máy cuốn lò xo túi tự động (Pocket Spring Coiler):": "• Automatic pocket-spring coiler:", "Tốc độ cao, tự động nối nhiệt điện tử, tiết kiệm thép lò xo.": "High speed, automatic electronic heat-bonding, saving spring steel.", "• Máy chần gòn đa kim (Multi-needle Quilting):": "• Multi-needle quilting machine:", "Sử dụng hệ điều khiển PLC thông minh dệt các họa tiết phức tạp trên lớp vỏ nệm cao cấp.": "Uses an intelligent PLC control system to weave complex patterns on premium mattress covers.", "• Máy cắt nệm cao su / foam CNC:": "• CNC latex / foam cutter:", "Đường cắt ngọt, tối thiểu hóa hao hụt nguyên liệu.": "Clean cuts that minimize material waste.", "• Máy nén cuộn chân không (Roll-Packer):": "• Vacuum roll-packer:", "Nén ép lực cao đóng gói nệm cuộn tròn trong hộp carton chuẩn xuất khẩu đi Mỹ và EU.": "High-pressure compression to roll-pack mattresses in export-standard cartons for the US and EU.", "• Linh kiện thay thế:": "• Replacement parts:", "Cung ứng đầu kim chần dệt, dao cắt CNC, bộ điều khiển khí nén SMC chính hãng.": "Supplying quilting needles, CNC cutting blades and genuine SMC pneumatic controllers.", "Vận hành chuẩn": "Standardized operations", "Quy trình làm việc": "Our workflow", "Quy trình 5 bước đảm bảo sự chính xác tối đa trong từng đơn hàng B2B.": "A 5-step process ensuring maximum precision in every B2B order.", "Tiếp nhận nhu cầu": "Receive requirements", "Phân tích sâu định hướng chất liệu vải của thương hiệu, chi phí hạn mức (target price), số lượng đặt hàng (MOQ) và hạn định giao hàng mong muốn.": "In-depth analysis of the brand's fabric direction, target price, order quantity (MOQ) and desired delivery deadline.", "Xây dựng tiêu chuẩn": "Set the standards", "Lập tài liệu kỹ thuật dệt may (Techpack) bao gồm chi tiết mật độ dệt, độ co rút vải, tiêu chuẩn may thêu chỉ số bền màu giặt là.": "Prepare a textile tech pack detailing weave density, fabric shrinkage, stitching standards and wash color-fastness.", "Tìm nguồn & So sánh": "Source & compare", "Gửi báo giá nhà máy (RFQ) tới các cơ sở sản xuất đạt tiêu chí kỹ thuật. Phân tích chi tiết giá thành, năng lực thanh toán và thời gian ra mẫu.": "Send RFQs to factories meeting the technical criteria and analyze pricing, payment terms and sampling lead time in detail.", "Làm mẫu & Kiểm soát": "Sample & control", "Sản xuất mẫu duyệt kỹ thuật và thêu thử. Đội ngũ kỹ sư tiến hành kiểm tra vải mộc và giám sát độc lập chất lượng trong quá trình may hàng loạt.": "Produce technical approval samples and trial embroidery. Our engineers inspect greige fabric and independently supervise quality during mass production.", "Hỗ trợ đơn hàng & Logistics": "Order support & logistics", "Kiểm đếm số lượng đóng thùng (final inspection), hỗ trợ khai hải quan xuất khẩu, vận chuyển giao hàng tận kho (DDP/FOB) an toàn.": "Final inspection and box counting, export customs support, and safe delivery to warehouse (DDP/FOB).", "Quy chuẩn kiểm soát": "Control standards", "Kiểm hàng độc lập theo tiêu chuẩn AQL 1.5 / 2.5": "Independent inspection to AQL 1.5 / 2.5 standards", "Đội ngũ giám định viên độc lập của chúng tôi sẽ trực tiếp có mặt tại nhà xưởng dệt may trong suốt quá trình sản xuất hàng loạt nhằm đảm bảo loại bỏ các lỗi ngoại quan phổ biến.": "Our independent inspectors are present at the factory throughout mass production to ensure common visual defects are eliminated.", "Quy trình kiểm tra kỹ thuật bao gồm ba công đoạn then chốt:": "The technical inspection process comprises three key stages:", "1. Khảo sát vải mộc (Fabric Inspection):": "1. Greige fabric inspection:", "Kiểm tra dệt lệch sợi, bụi bẩn dầu máy trên bề mặt vải trước khi cắt vải hàng loạt.": "Checking for misaligned weaves and machine-oil stains on the fabric surface before bulk cutting.", "2. Kiểm tra đường may (In-line Inspection):": "2. In-line seam inspection:", "Đo đạc dung sai kích thước ga giường, đếm mật độ mũi chỉ dệt thêu đảm bảo độ bền kéo khi giặt là công nghiệp.": "Measuring sheet dimensional tolerances and counting stitch density to ensure tensile durability under industrial laundering.", "3. Nghiệm thu đóng gói (Final Inspection):": "3. Final packaging inspection:", "Rút mẫu ngẫu nhiên theo công thức thống kê MIL-STD-105E để đánh giá tổng thể bao bì nhãn mác và niêm phong thùng carton.": "Random sampling per the MIL-STD-105E statistical method to assess overall packaging, labeling and carton sealing.", "Sản phẩm xuất khẩu": "Export products", "Danh mục sản phẩm Sourcing": "Sourcing product catalog", "Sản phẩm chăn ga gối đệm cao cấp được thiết kế theo chuẩn kỹ thuật quốc tế.": "Premium bedding products designed to international technical standards.", "Ga trải giường": "Bed sheets", "Chất liệu Cotton Sateen 40s/60s/80s, Tencel Lyocell sinh học, Bamboo Silk kháng khuẩn, Linen thô tự nhiên...": "Cotton Sateen 40s/60s/80s, bio-based Tencel Lyocell, antibacterial Bamboo Silk, natural raw Linen and more.", "Vỏ chăn & Vỏ gối": "Duvet covers & pillowcases", "Các dòng vỏ chăn thêu họa tiết nghệ thuật, trơn màu tối giản phong cách Bắc Âu, jacquard hoặc dệt sọc satin khách sạn.": "Duvet covers with artistic embroidery, minimalist Nordic solids, jacquard or hotel satin-stripe weaves.", "Ruột chăn & Ruột gối": "Duvet & pillow inserts", "Bông Microfiber siêu mịn giả lông vũ, ruột bông tự nhiên kháng khuẩn, lông vũ ngỗng tinh khiết đạt chuẩn lọc bụi quốc tế.": "Ultra-fine down-alternative microfiber, antibacterial natural fillings, and pure goose down meeting international dust-filtration standards.", "Đệm & Topper": "Mattresses & toppers", "Đệm lò xo túi độc lập nâng đỡ 7 vùng cơ thể, đệm cao su thiên nhiên 100% và topper lông vũ êm ái tiêu chuẩn khách sạn 5 sao.": "Independent pocket-spring mattresses supporting 7 body zones, 100% natural latex mattresses and plush down toppers to 5-star hotel standards.", "Khăn & Đồ vải khách sạn": "Towels & hotel linens", "Khăn tắm cotton sợi đôi (double-loop) dệt mật độ cao thấm hút nước tốt, áo choàng tắm tổ ong, dép buồng phòng và váy giường.": "High-density double-loop cotton towels with strong absorbency, waffle bathrobes, room slippers and bed skirts.", "Rèm, Thảm & Dệt gia dụng": "Curtains, rugs & home textiles", "Rèm cản sáng chống tia UV chất liệu linen mềm mại, thảm cotton dệt tay trang trí phòng khách và thảm trải sàn dệt vòng.": "UV-blocking blackout curtains in soft linen, hand-woven cotton living-room rugs and loop-woven floor rugs.", "Thông số kỹ thuật": "Specifications", "Tiêu chuẩn chất liệu dệt chăn ga gối": "Bedding fabric material standards", "Chúng tôi tư vấn và tìm nguồn cung ứng vải bedding dựa trên hệ thông số kỹ thuật chuẩn hóa cho cả nhu cầu thương hiệu cao cấp và khách sạn dệt sọc công nghiệp nặng.": "We advise and source bedding fabrics based on standardized specifications for both premium brands and heavy-duty hotel stripe-weave needs.", "Tên Vải": "Fabric name", "Chi số sợi (S)": "Yarn count (S)", "Mật độ dệt (Thread Count)": "Weave density (Thread Count)", "Ứng dụng phổ biến": "Common applications", "Ga giường khách sạn 5 sao, bộ chăn ga gia đình cao cấp.": "5-star hotel bed sheets and premium family bedding sets.", "Chăn ga sinh học kháng khuẩn, mát lạnh tự nhiên cho da nhạy cảm.": "Antibacterial bio-based bedding, naturally cool for sensitive skin.", "Nhãn hàng organic sinh thái, tự phân hủy thân thiện môi trường.": "Eco organic brands, biodegradable and environmentally friendly.", "Linen Lanh thô": "Raw Linen", "Dòng sản phẩm mộc mạc xuất khẩu châu Âu, Bắc Mỹ.": "Rustic product line for European and North American export.", "Thế mạnh cạnh tranh": "Competitive strengths", "Lợi thế của chúng tôi": "Our advantages", "Vì sao Bedding Sourcing là sự lựa chọn hàng đầu của các thương hiệu bedding và nệm công nghiệp.": "Why Bedding Sourcing is the top choice for bedding brands and industrial mattress makers.", "Am hiểu sâu sắc ngành dệt gia dụng": "Deep expertise in home textiles", "Chúng tôi không chỉ là trung gian thương mại. Đội ngũ kỹ sư của chúng tôi am hiểu cặn kẽ về chỉ số chi số sợi (sợi 40s, 60s, 80s), mật độ dệt dọc ngang (warp/weft density), và kỹ thuật nhuộm màu phản ứng bảo vệ môi trường, hạn chế co rút và xù lông vải.": "We are more than a trading middleman. Our engineers deeply understand yarn counts (40s, 60s, 80s), warp/weft weave density, and eco-friendly reactive dyeing that limits shrinkage and pilling.", "Mạng lưới nhà cung cấp rộng lớn": "An extensive supplier network", "Hợp tác chặt chẽ với hàng chục nhà máy dệt kim, dệt thoi và gia công may mặc có quy mô sản xuất lớn, sở hữu đầy đủ chứng chỉ OEKO-TEX Standard 100, BSCI, GOTS. Giúp đối tác tiếp cận được chính sách giá xuất xưởng tốt nhất cùng MOQ tối ưu.": "We work closely with dozens of large-scale knitting, weaving and garment factories fully certified to OEKO-TEX Standard 100, BSCI and GOTS, giving partners the best factory-gate pricing and optimal MOQs.", "Năng lực Sourcing thiết bị sản xuất nệm chuyên sâu": "In-depth mattress-equipment sourcing capability", "Chúng tôi là một trong số rất ít đơn vị tại Việt Nam có khả năng tư vấn, sourcing, và cung ứng toàn bộ linh kiện cơ khí, phụ tùng điều khiển PLC và dây chuyền lắp ráp máy chần, máy cuộn lò xo từ các nhà sản xuất máy móc hàng đầu châu Á và châu Âu.": "We are one of very few firms in Vietnam able to advise, source and supply complete mechanical components, PLC control parts and assembly lines for quilting and spring-coiling machines from leading Asian and European manufacturers.", "Hỗ trợ trọn gói từ ý tưởng đến đơn hàng": "End-to-end support from idea to order", "Chúng tôi phụ trách toàn bộ chu kỳ sống của đơn hàng: May thử mẫu duyệt, thiết kế nhãn mác bao bì độc quyền, theo dõi tiến độ sản xuất, kiểm hàng và logistics quốc tế hải quan nhanh chóng.": "We manage the entire order lifecycle: sampling and approval, exclusive label and packaging design, production tracking, inspection, and fast international logistics and customs.", "Nguồn cung & Kho bãi": "Supply & warehousing", "Mạng lưới sản xuất dệt may trải rộng": "An extensive textile production network", "Chúng tôi đại diện tìm nguồn và điều phối đơn hàng tại các vùng trọng điểm dệt may của cả nước như: Nam Định (cường quốc dệt thoi chăn ga), Hải Phòng (trọng điểm may mặc xuất khẩu), Bình Dương & Đồng Nai (các tổ hợp dệt sợi hóa học công nghệ cao).": "We source and coordinate orders on your behalf across the country's key textile hubs such as: Nam Dinh (a powerhouse of woven bedding), Hai Phong (a key export garment center), and Binh Duong & Dong Nai (high-tech synthetic-fiber weaving complexes).", "Dịch vụ quản trị kho bãi của Bedding Sourcing giúp thu gom hàng lẻ (LCL) từ nhiều nhà cung cấp khác nhau, gom tải thành container đầy (FCL) đóng gói cẩn thận chống ẩm mốc trước khi vận chuyển tàu biển quốc tế, giúp doanh nghiệp tiết kiệm đến 30% chi phí vận chuyển riêng lẻ.": "Bedding Sourcing's warehousing service consolidates less-than-container loads (LCL) from multiple suppliers into full container loads (FCL), carefully moisture-proofed before international sea freight, helping businesses save up to 30% on separate shipping costs.", "Tư vấn miễn phí": "Free consultation", "Liên hệ với chúng tôi": "Contact us", "Điền nhu cầu tìm nguồn cung hoặc thiết bị máy móc ngành nệm của bạn để nhận báo giá & giải pháp tối ưu nhất.": "Tell us your sourcing or mattress-equipment needs to receive the best quote and solution.", "Thông tin pháp lý doanh nghiệp": "Company legal information", "Tên pháp lý đầy đủ": "Full legal name", "Mã số thuế": "Tax code", "Địa chỉ trụ sở chính": "Head office address", "23 Đường T4A, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam": "23 T4A Street, Tay Thanh Ward, Ho Chi Minh City, Vietnam", "Số điện thoại liên hệ": "Contact phone number", "Người đại diện pháp luật": "Legal representative", "Ngày bắt đầu hoạt động": "Business start date", "02/03/2023 (Tình trạng: Đang hoạt động)": "02/03/2023 (Status: Active)", "Họ tên của bạn *": "Your full name *", "Số điện thoại *": "Phone number *", "Địa chỉ Email *": "Email address *", "Nhu cầu Sourcing chính": "Primary sourcing need", "Chi tiết nhu cầu (Chất liệu, số lượng, dòng máy...) *": "Requirement details (material, quantity, machine type...) *", "Gửi yêu cầu tư vấn": "Send consultation request", "Nguyễn Văn A": "John Smith", "doi-tac@gmail.com": "partner@email.com", "Vui lòng mô tả rõ hơn về sản phẩm, số lượng dự kiến để chúng tôi chuẩn bị báo giá chính xác nhất...": "Please describe the product and expected quantity so we can prepare the most accurate quote...", "Sourcing chăn ga gối đệm thương mại": "Commercial bedding sourcing", "Sourcing máy móc, thiết bị & phụ tùng sản xuất nệm": "Mattress machinery, equipment & parts sourcing", "Phát triển nhãn hàng riêng (Private Label)": "Private Label development", "Setup đồ vải khách sạn / resort / villa": "Hotel / resort / villa linen setup", "Yêu cầu kiểm soát chất lượng (QC) & Hải quan": "Quality control (QC) & customs request", "Yêu cầu khác": "Other request", "Hỗ trợ đối tác": "Partner support", "Câu hỏi thường gặp B2B FAQs": "B2B frequently asked questions", "Giải đáp thắc mắc nhanh về thủ tục làm việc, may mẫu và vận hành đơn hàng chăn ga gối đệm xuất khẩu.": "Quick answers about working procedures, sampling and running export bedding orders.", "Số lượng đặt hàng tối thiểu (MOQ) trung bình là bao nhiêu?": "What is the average minimum order quantity (MOQ)?", "Đối với các loại vải dệt nhuộm có sẵn trong kho, MOQ dệt may chỉ từ 500 mét/màu. Đối với các đơn hàng nhuộm màu Pantone riêng hoặc đặt dệt các kiểu jacquard / dobby theo yêu cầu, MOQ dao động từ 1.500m đến 3.000m tùy thuộc vào chi số sợi sợi Cotton hay Bamboo dệt sẵn.": "For in-stock dyed fabrics, the textile MOQ starts from just 500 meters per color. For custom Pantone dyeing or made-to-order jacquard/dobby weaves, the MOQ ranges from 1,500m to 3,000m depending on the Cotton or Bamboo yarn count.", "Thời gian phát triển mẫu thử dệt may (Gold Sample) là bao lâu?": "How long does textile sample (Gold Sample) development take?", "Thời gian làm mẫu thử kỹ thuật trung bình từ 7 đến 10 ngày làm việc sau khi chốt tài liệu thông số kỹ thuật vải (density, thread count). Đối với các mẫu thêu dệt độc quyền, thời gian có thể kéo dài thêm 3-5 ngày để tinh chỉnh khuôn thêu CNC của nhà máy dệt.": "Technical sampling averages 7 to 10 working days after finalizing the fabric specification (density, thread count). For exclusive embroidered weaves, it may take an additional 3-5 days to fine-tune the factory's CNC embroidery molds.", "Bedding Sourcing có hỗ trợ thủ tục thông quan xuất khẩu đi Mỹ và EU không?": "Does Bedding Sourcing support export customs clearance to the US and EU?", "Có, chúng tôi cung cấp dịch vụ xuất nhập khẩu trọn gói và ủy thác xuất nhập khẩu. Chúng tôi trực tiếp chuẩn bị bộ hồ sơ khai báo hải quan, xin chứng nhận xuất xứ nguồn gốc (C/O Form B, Form EUR.1, Form D), hỗ trợ kiểm nghiệm không chứa chất độc hại đạt chuẩn kiểm định hải quan EU/Mỹ.": "Yes. We provide full and entrusted import-export services. We directly prepare customs declaration dossiers, obtain certificates of origin (C/O Form B, Form EUR.1, Form D) and support hazardous-substance-free testing meeting EU/US customs standards.", "Có chính sách bảo hành đối với máy móc thiết bị ngành nệm không?": "Is there a warranty for mattress-industry machinery and equipment?", "Tất cả máy móc thiết bị ngành nệm (máy lò xo túi, máy chần đa kim, máy CNC...) do Bedding Sourcing kết nối sourcing nhập khẩu đều được bảo hành kỹ thuật chính hãng 12 tháng. Chúng tôi hỗ trợ lắp đặt, hiệu chỉnh phần mềm PLC và cam kết cung ứng linh kiện/phụ tùng thay thế chính hãng tối thiểu 5 năm từ ngày bàn giao dây chuyền sản xuất.": "All mattress-industry machinery (pocket-spring machines, multi-needle quilters, CNC machines, etc.) sourced and imported through Bedding Sourcing comes with a 12-month genuine technical warranty. We support installation, PLC software calibration and commit to supplying genuine replacement parts for at least 5 years from production-line handover.", "Đối tác B2B tin cậy hàng đầu trong lĩnh vực tìm nguồn cung ứng chăn ga gối đệm, tư vấn kỹ thuật máy móc phụ tùng sản xuất nệm và đồ vải buồng phòng tại Việt Nam.": "A leading trusted B2B partner in bedding sourcing, mattress machinery and parts technical consulting, and hospitality linens in Vietnam.", "Danh mục nhanh": "Quick links", "Ngành nghề cốt lõi": "Core business lines", "Tư vấn quản lý nguồn cung B2B": "B2B supply management consulting", "Bán buôn máy móc thiết bị nệm": "Mattress machinery wholesale", "Sản xuất gia công hàng dệt sẵn": "Ready-made textile manufacturing", "Kiểm định chất lượng độc lập": "Independent quality inspection", "Ủy thác xuất nhập khẩu hải quan": "Entrusted import-export & customs", "Liên hệ trực tiếp": "Direct contact", "Trụ sở: 23 Đường T4A, P. Tây Thạnh, TP. Hồ Chí Minh": "HQ: 23 T4A Street, Tay Thanh Ward, Ho Chi Minh City", "© 2026 BEDDING SOURCING. Bảo lưu mọi quyền thương hiệu.": "© 2026 BEDDING SOURCING. All brand rights reserved.", "Chính sách bảo mật": "Privacy Policy", "Điều khoản & Cookie": "Terms & Cookies", "Từ chối": "Decline", "Chấp nhận": "Accept", "Chúng tôi sử dụng cookie để cải thiện trải nghiệm và phân tích lưu lượng truy cập. Bằng việc tiếp tục, bạn đồng ý với việc thu thập cookie theo": "We use cookies to improve your experience and analyze traffic. By continuing, you consent to the collection of cookies under our", "của chúng tôi.": ".", "Pháp lý": "Legal", "Chính sách bảo mật & Cookie": "Privacy & Cookie Policy", "Cam kết bảo vệ dữ liệu cá nhân của bạn theo pháp luật Việt Nam khi truy cập và sử dụng website Bedding Sourcing.": "Our commitment to protecting your personal data under Vietnamese law when you access and use the Bedding Sourcing website.", "Cập nhật lần cuối: 11/07/2026": "Last updated: 11/07/2026", "Chính sách này được xây dựng tuân theo": "This policy is built in accordance with", "(có hiệu lực từ 01/01/2026),": "(effective from 01/01/2026),", ", Luật An toàn thông tin mạng, Luật Giao dịch điện tử và Luật Bảo vệ quyền lợi người tiêu dùng.": ", the Law on Cybersecurity, the Law on E-Transactions and the Law on Protection of Consumer Rights.", "Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15": "Personal Data Protection Law No. 91/2025/QH15", "Nghị định 356/2025/NĐ-CP": "Decree 356/2025/ND-CP", "1. Đơn vị kiểm soát dữ liệu": "1. Data controller", "được vận hành bởi:": "is operated by:", "Mã số thuế:": "Tax code:", "Điện thoại:": "Phone:", "Địa chỉ: 23 Đường T4A, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam": "Address: 23 T4A Street, Tay Thanh Ward, Ho Chi Minh City, Vietnam", "Người đại diện pháp luật: Ông Tống Nguyên Anh": "Legal representative: Mr. Tong Nguyen Anh", "2. Dữ liệu cá nhân chúng tôi thu thập": "2. Personal data we collect", "2.1. Dữ liệu bạn cung cấp trực tiếp": "2.1. Data you provide directly", "Khi bạn gửi biểu mẫu tư vấn hoặc liên hệ với chúng tôi: họ và tên, số điện thoại, địa chỉ email, tên doanh nghiệp (nếu có) và nội dung yêu cầu tư vấn.": "When you submit a consultation form or contact us: full name, phone number, email address, company name (if any) and the content of your request.", "2.2. Dữ liệu thu thập tự động": "2.2. Data collected automatically", "Khi bạn truy cập website: địa chỉ IP, loại thiết bị và trình duyệt, hệ điều hành, các trang bạn xem, thời gian truy cập và dữ liệu từ cookie (xem Mục 5).": "When you visit the website: IP address, device and browser type, operating system, pages viewed, access time and cookie data (see Section 5).", "3. Mục đích thu thập và xử lý": "3. Purpose of collection and processing", "Tiếp nhận và phản hồi yêu cầu tư vấn, báo giá, chăm sóc khách hàng.": "Receiving and responding to consultation and quote requests, and customer care.", "Thực hiện và quản lý các giao dịch, hợp đồng cung ứng.": "Performing and managing transactions and supply contracts.", "Cải thiện nội dung, trải nghiệm và hiệu năng website.": "Improving website content, experience and performance.", "Gửi thông tin về sản phẩm, dịch vụ khi có sự đồng ý của bạn.": "Sending product and service information with your consent.", "Tuân thủ nghĩa vụ theo quy định pháp luật.": "Complying with legal obligations.", "4. Cơ sở pháp lý và sự đồng ý": "4. Legal basis and consent", "Chúng tôi chỉ xử lý dữ liệu cá nhân khi có": "We only process personal data with your", "sự đồng ý": "consent", "rút lại sự đồng ý": "withdraw consent", "của bạn hoặc trong các trường hợp được pháp luật cho phép. Bạn có quyền": "or in cases permitted by law. You have the right to", "bất kỳ lúc nào; việc rút lại không ảnh hưởng đến tính hợp pháp của hoạt động xử lý đã thực hiện trước đó.": "at any time; withdrawal does not affect the lawfulness of processing carried out beforehand.", "5. Cookie và công nghệ tương tự": "5. Cookies and similar technologies", "Website sử dụng cookie để ghi nhớ tùy chọn, phân tích lưu lượng và cải thiện trải nghiệm. Các loại cookie gồm:": "The website uses cookies to remember preferences, analyze traffic and improve experience. Cookie types include:", "Cookie cần thiết:": "Essential cookies:", "Cookie phân tích:": "Analytics cookies:", "đảm bảo website hoạt động cơ bản.": "ensure basic website functionality.", "giúp chúng tôi hiểu cách bạn sử dụng website (ẩn danh, tổng hợp).": "help us understand how you use the website (anonymized, aggregated).", "Khi truy cập lần đầu, bạn sẽ thấy thông báo để": "On your first visit, you will see a notice to", "chấp nhận hoặc từ chối": "accept or decline", "cookie. Bạn cũng có thể xóa hoặc chặn cookie trong cài đặt trình duyệt bất kỳ lúc nào; tuy nhiên một số chức năng có thể bị ảnh hưởng.": "cookies. You can also delete or block cookies in your browser settings at any time; however, some functions may be affected.", "6. Chia sẻ dữ liệu cho bên thứ ba": "6. Sharing data with third parties", "Chúng tôi": "We", "không mua bán": "do not sell", "dữ liệu cá nhân của bạn. Dữ liệu chỉ có thể được chia sẻ với: nhà cung cấp dịch vụ hỗ trợ vận hành website (lưu trữ, phân tích) theo thỏa thuận bảo mật; hoặc cơ quan nhà nước có thẩm quyền khi pháp luật yêu cầu.": "your personal data. Data may only be shared with: service providers that help operate the website (hosting, analytics) under confidentiality agreements; or competent state authorities when required by law.", "7. Chuyển dữ liệu ra nước ngoài": "7. Cross-border data transfer", "Website có thể sử dụng dịch vụ hạ tầng đặt tại nước ngoài. Trong trường hợp phát sinh chuyển dữ liệu cá nhân xuyên biên giới, chúng tôi cam kết tuân thủ các quy định của Luật Bảo vệ dữ liệu cá nhân và Nghị định hướng dẫn.": "The website may use infrastructure services located overseas. Where cross-border transfer of personal data occurs, we commit to complying with the Personal Data Protection Law and its guiding decree.", "8. Thời gian lưu trữ": "8. Retention period", "Dữ liệu cá nhân được lưu trữ trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo thời hạn luật định, sau đó được xóa hoặc ẩn danh một cách an toàn.": "Personal data is stored for as long as necessary to fulfill the above purposes or as required by law, after which it is securely deleted or anonymized.", "9. Bảo mật dữ liệu": "9. Data security", "Chúng tôi áp dụng các biện pháp kỹ thuật và quản lý hợp lý (kết nối HTTPS, phân quyền truy cập, sao lưu) nhằm bảo vệ dữ liệu khỏi truy cập, thay đổi hoặc tiết lộ trái phép.": "We apply reasonable technical and organizational measures (HTTPS connection, access control, backups) to protect data from unauthorized access, alteration or disclosure.", "10. Quyền của bạn đối với dữ liệu cá nhân": "10. Your rights over personal data", "Theo Luật Bảo vệ dữ liệu cá nhân, bạn có các quyền sau:": "Under the Personal Data Protection Law, you have the following rights:", "Quyền được biết về việc xử lý dữ liệu của mình.": "The right to be informed about the processing of your data.", "Quyền đồng ý hoặc không đồng ý với việc xử lý.": "The right to consent to or object to processing.", "Quyền truy cập, xem, chỉnh sửa dữ liệu.": "The right to access, view and correct data.", "Quyền rút lại sự đồng ý.": "The right to withdraw consent.", "Quyền yêu cầu xóa hoặc hạn chế xử lý dữ liệu.": "The right to request deletion or restriction of processing.", "Quyền phản đối việc xử lý dữ liệu.": "The right to object to processing.", "Quyền khiếu nại, tố cáo, khởi kiện và yêu cầu bồi thường theo quy định.": "The right to complain, denounce, litigate and claim compensation as prescribed.", "Để thực hiện các quyền trên, vui lòng liên hệ qua thông tin tại Mục 12.": "To exercise these rights, please contact us using the information in Section 12.", "11. Dữ liệu của trẻ em": "11. Children's data", "Website hướng tới đối tượng khách hàng doanh nghiệp (B2B) và không chủ đích thu thập dữ liệu của trẻ em dưới 16 tuổi. Việc xử lý dữ liệu trẻ em (nếu có) phải có sự đồng ý của cha, mẹ hoặc người giám hộ theo quy định pháp luật.": "The website targets business (B2B) customers and does not intentionally collect data from children under 16. Any processing of children's data must have the consent of a parent or legal guardian as prescribed by law.", "12. Liên hệ về dữ liệu cá nhân": "12. Personal data contact", "Mọi yêu cầu, câu hỏi hoặc khiếu nại liên quan đến dữ liệu cá nhân, vui lòng liên hệ:": "For any request, question or complaint regarding personal data, please contact:", "hoặc": "or", "13. Thay đổi chính sách": "13. Changes to this policy", "Chúng tôi có thể cập nhật Chính sách này theo thời gian. Phiên bản mới sẽ được đăng tại trang này kèm ngày cập nhật. Việc bạn tiếp tục sử dụng website sau khi cập nhật đồng nghĩa với việc bạn chấp nhận nội dung đã thay đổi.": "We may update this policy from time to time. New versions will be posted on this page with an updated date. Your continued use of the website after an update constitutes acceptance of the changes."}, TITLE={"vi": "Bedding Sourcing | Giải pháp Sourcing Chăn Ga Gối Đệm B2B Cao Cấp", "en": "Bedding Sourcing | Premium B2B Bedding Sourcing Solutions"}, KEY='bs_lang';
+      /* Thứ tự ưu tiên ngôn ngữ: 1) tham số ?lang= trên URL (từ trang /en/),
+         2) lựa chọn đã lưu, 3) auto-detect: trình duyệt không phải tiếng Việt -> EN */
+      var lang=null;
+      try{ var qp=new URLSearchParams(location.search).get('lang'); if(qp==='en'||qp==='vi'){ lang=qp; try{localStorage.setItem(KEY,qp);}catch(e){} } }catch(e){}
+      if(!lang){ try{lang=localStorage.getItem(KEY);}catch(e){} }
+      if(!lang){ lang=((navigator.language||navigator.userLanguage||'').toLowerCase().indexOf('vi')===0)?'vi':'en'; }
       var tn=[], an=[];
       function collect(){
         var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
