@@ -1868,8 +1868,8 @@
             stroke-width: 2.5;
         }
 
-        /* Mobile Nav Menu Overlay (Apple Style) */
-        @media (max-width: 768px) {
+        /* Mobile Nav Menu Overlay (Apple Style) - includes tablets up to 992px */
+        @media (max-width: 992px) {
             .menu-btn {
                 display: flex;
             }
@@ -1947,9 +1947,33 @@
         .mobile-cta {
             display: none;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .mobile-cta {
                 display: block;
+            }
+        }
+
+        /* --- Responsive fixes: hero height on tablet/landscape & stats grid on mobile --- */
+        /* Prevent hero content from being clipped on tablets and short/landscape screens */
+        @media (max-width: 992px), (max-height: 640px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 90px;
+                padding-bottom: 40px;
+            }
+        }
+
+        /* Stats grid: keep 3 columns readable on small phones */
+        @media (max-width: 576px) {
+            .about-stats {
+                gap: 12px !important;
+            }
+            .about-stats .stat-number {
+                font-size: 1.9rem !important;
+            }
+            .about-stats .stat-label {
+                font-size: 0.68rem;
             }
         }
     </style>
@@ -1997,7 +2021,7 @@
             <!-- Full Screen Hero -->
             <section class="hero">
                 <!-- Video Background (Auto plays if 02_video_nen.mp4 exists, otherwise falls back to the background image) -->
-                <video class="hero-video" autoplay loop muted playsinline poster="assets/img/hero/01_hinh_nen_chinh.jpg?v=2">
+                <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/img/hero/01_hinh_nen_chinh.jpg?v=2">
                     <source src="assets/img/hero/02_video_nen.mp4?v=2" type="video/mp4">
                 </video>
                 
@@ -2094,7 +2118,7 @@
                         <h2>Những gì chúng tôi làm tốt nhất</h2>
                         <p>Cung cấp giải pháp chuỗi cung ứng bedding từ thiết kế sản phẩm mẫu đến bàn giao trọn gói kho bãi logistics.</p>
                     </div>
-                    <div class="services-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;">
+                    <div class="services-grid" style="gap: 24px; margin-bottom: 40px;">
                         <div class="service-card reveal-slide-up" style="--delay: 100ms;">
                             <div class="service-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
@@ -3029,20 +3053,62 @@
             navigateTo(window.location.hash);
 
             // 3. MOBILE NAVIGATION LOGIC
-            const toggleMobileMenu = () => {
+            // NOTE: These are function declarations (not const arrow functions) so they are
+            // hoisted and available when navigateTo() runs on initial load. Otherwise the
+            // closeMobileMenu() call inside navigateTo throws a temporal-dead-zone error at
+            // init, which aborts the rest of this script and breaks the hamburger menu.
+            function toggleMobileMenu() {
                 menuToggle.classList.toggle('open');
                 nav.classList.toggle('open');
                 document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : 'auto';
-            };
+            }
 
-            const closeMobileMenu = () => {
+            function closeMobileMenu() {
                 menuToggle.classList.remove('open');
                 nav.classList.remove('open');
                 document.body.style.overflow = 'auto';
-            };
+            }
 
             menuToggle.addEventListener('click', toggleMobileMenu);
             menuBtnCloses.forEach(btn => btn.addEventListener('click', closeMobileMenu));
+
+            // 3b. FORCE HERO VIDEO AUTOPLAY ON MOBILE (iOS/Android)
+            // Mobile browsers often block autoplay until muted playback is explicitly
+            // triggered; some (iOS Low Power Mode) only allow it after a user gesture.
+            const heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.setAttribute('muted', '');
+                heroVideo.playsInline = true;
+
+                const tryPlayVideo = () => {
+                    const p = heroVideo.play();
+                    if (p !== undefined && typeof p.catch === 'function') {
+                        p.catch(() => { /* Autoplay blocked; will retry on interaction */ });
+                    }
+                };
+
+                // Attempt immediately and once the video data is ready
+                tryPlayVideo();
+                heroVideo.addEventListener('loadeddata', tryPlayVideo);
+                heroVideo.addEventListener('canplay', tryPlayVideo);
+
+                // Retry on the first user interaction (covers autoplay-restricted devices)
+                const resumeOnInteract = () => {
+                    tryPlayVideo();
+                    window.removeEventListener('touchstart', resumeOnInteract);
+                    window.removeEventListener('click', resumeOnInteract);
+                    window.removeEventListener('scroll', resumeOnInteract);
+                };
+                window.addEventListener('touchstart', resumeOnInteract, { passive: true });
+                window.addEventListener('click', resumeOnInteract);
+                window.addEventListener('scroll', resumeOnInteract, { passive: true });
+
+                // Resume when returning to the tab
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) tryPlayVideo();
+                });
+            }
 
             // 4. HEADER SCROLL & BACK TO TOP BUTTON LOGIC
             window.addEventListener('scroll', () => {
