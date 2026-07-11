@@ -2200,6 +2200,121 @@
             .container { padding-left: 18px; padding-right: 18px; }
             .logo-text { font-size: 0.9rem; letter-spacing: 0.08em; }
         }
+
+        /* ===== Privacy Policy page ===== */
+        .policy-content { max-width: 860px; margin: 0 auto; }
+        .policy-updated {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 28px;
+        }
+        .policy-content h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+            margin: 40px 0 14px;
+        }
+        .policy-content h2:first-of-type { margin-top: 0; }
+        .policy-content h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 22px 0 10px;
+        }
+        .policy-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 14px;
+            font-size: 0.98rem;
+        }
+        .policy-content ul {
+            margin: 0 0 16px 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.98rem;
+        }
+        .policy-content li { margin-bottom: 8px; }
+        .policy-content a { color: var(--accent); }
+        .policy-content strong { color: var(--text-primary); font-weight: 700; }
+        .policy-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px 24px;
+            margin: 20px 0;
+        }
+        .policy-box p:last-child { margin-bottom: 0; }
+
+        /* ===== Cookie consent banner ===== */
+        .cookie-consent {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            max-width: 760px;
+            margin: 0 auto;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 18px 22px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transform: translateY(160%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s, visibility 0.55s;
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        .cookie-consent p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            flex: 1;
+            min-width: 0;
+        }
+        .cookie-consent a { color: #ffffff; text-decoration: underline; }
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .cookie-actions button {
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .cookie-accept { background: #ffffff; color: var(--primary); }
+        .cookie-accept:hover { background: #f0f0f2; }
+        .cookie-decline {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+        }
+        .cookie-decline:hover { background: rgba(255, 255, 255, 0.2); }
+
+        @media (max-width: 640px) {
+            .cookie-consent {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 16px 18px;
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+            }
+            .cookie-actions button { flex: 1; padding: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -3086,6 +3201,99 @@
             </section>
         </div>
 
+        <!-- SPA PAGE: CHÍNH SÁCH BẢO MẬT -->
+        <div class="spa-page" id="page-chinh-sach-bao-mat">
+            <div class="page-banner">
+                <div class="container">
+                    <span class="badge">Pháp lý</span>
+                    <h1>Chính sách bảo mật &amp; Cookie</h1>
+                    <p>Cam kết bảo vệ dữ liệu cá nhân của bạn theo pháp luật Việt Nam khi truy cập và sử dụng website Bedding Sourcing.</p>
+                </div>
+            </div>
+
+            <section class="section-padding" style="background-color: var(--bg-primary);">
+                <div class="container">
+                    <div class="policy-content">
+                        <p class="policy-updated">Cập nhật lần cuối: 11/07/2026</p>
+
+                        <div class="policy-box">
+                            <p>Chính sách này được xây dựng tuân theo <strong>Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15</strong> (có hiệu lực từ 01/01/2026), <strong>Nghị định 356/2025/NĐ-CP</strong>, Luật An toàn thông tin mạng, Luật Giao dịch điện tử và Luật Bảo vệ quyền lợi người tiêu dùng.</p>
+                        </div>
+
+                        <h2>1. Đơn vị kiểm soát dữ liệu</h2>
+                        <p>Website <strong>beddingsourcing.online</strong> được vận hành bởi:</p>
+                        <ul>
+                            <li><strong>CÔNG TY TNHH TƯ VẤN DỊCH VỤ VÀ THƯƠNG MẠI BEDDING SOURCING</strong></li>
+                            <li>Mã số thuế: <strong>0317712253</strong></li>
+                            <li>Địa chỉ: 23 Đường T4A, Phường Tây Thạnh, Thành phố Hồ Chí Minh, Việt Nam</li>
+                            <li>Người đại diện pháp luật: Ông Tống Nguyên Anh</li>
+                            <li>Điện thoại: <a href="tel:0933126162">0933 126 162</a> &nbsp;·&nbsp; Email: <a href="mailto:info@beddingsourcing.vn">info@beddingsourcing.vn</a></li>
+                        </ul>
+
+                        <h2>2. Dữ liệu cá nhân chúng tôi thu thập</h2>
+                        <h3>2.1. Dữ liệu bạn cung cấp trực tiếp</h3>
+                        <p>Khi bạn gửi biểu mẫu tư vấn hoặc liên hệ với chúng tôi: họ và tên, số điện thoại, địa chỉ email, tên doanh nghiệp (nếu có) và nội dung yêu cầu tư vấn.</p>
+                        <h3>2.2. Dữ liệu thu thập tự động</h3>
+                        <p>Khi bạn truy cập website: địa chỉ IP, loại thiết bị và trình duyệt, hệ điều hành, các trang bạn xem, thời gian truy cập và dữ liệu từ cookie (xem Mục 5).</p>
+
+                        <h2>3. Mục đích thu thập và xử lý</h2>
+                        <ul>
+                            <li>Tiếp nhận và phản hồi yêu cầu tư vấn, báo giá, chăm sóc khách hàng.</li>
+                            <li>Thực hiện và quản lý các giao dịch, hợp đồng cung ứng.</li>
+                            <li>Cải thiện nội dung, trải nghiệm và hiệu năng website.</li>
+                            <li>Gửi thông tin về sản phẩm, dịch vụ khi có sự đồng ý của bạn.</li>
+                            <li>Tuân thủ nghĩa vụ theo quy định pháp luật.</li>
+                        </ul>
+
+                        <h2>4. Cơ sở pháp lý và sự đồng ý</h2>
+                        <p>Chúng tôi chỉ xử lý dữ liệu cá nhân khi có <strong>sự đồng ý</strong> của bạn hoặc trong các trường hợp được pháp luật cho phép. Bạn có quyền <strong>rút lại sự đồng ý</strong> bất kỳ lúc nào; việc rút lại không ảnh hưởng đến tính hợp pháp của hoạt động xử lý đã thực hiện trước đó.</p>
+
+                        <h2>5. Cookie và công nghệ tương tự</h2>
+                        <p>Website sử dụng cookie để ghi nhớ tùy chọn, phân tích lưu lượng và cải thiện trải nghiệm. Các loại cookie gồm:</p>
+                        <ul>
+                            <li><strong>Cookie cần thiết:</strong> đảm bảo website hoạt động cơ bản.</li>
+                            <li><strong>Cookie phân tích:</strong> giúp chúng tôi hiểu cách bạn sử dụng website (ẩn danh, tổng hợp).</li>
+                        </ul>
+                        <p>Khi truy cập lần đầu, bạn sẽ thấy thông báo để <strong>chấp nhận hoặc từ chối</strong> cookie. Bạn cũng có thể xóa hoặc chặn cookie trong cài đặt trình duyệt bất kỳ lúc nào; tuy nhiên một số chức năng có thể bị ảnh hưởng.</p>
+
+                        <h2>6. Chia sẻ dữ liệu cho bên thứ ba</h2>
+                        <p>Chúng tôi <strong>không mua bán</strong> dữ liệu cá nhân của bạn. Dữ liệu chỉ có thể được chia sẻ với: nhà cung cấp dịch vụ hỗ trợ vận hành website (lưu trữ, phân tích) theo thỏa thuận bảo mật; hoặc cơ quan nhà nước có thẩm quyền khi pháp luật yêu cầu.</p>
+
+                        <h2>7. Chuyển dữ liệu ra nước ngoài</h2>
+                        <p>Website có thể sử dụng dịch vụ hạ tầng đặt tại nước ngoài. Trong trường hợp phát sinh chuyển dữ liệu cá nhân xuyên biên giới, chúng tôi cam kết tuân thủ các quy định của Luật Bảo vệ dữ liệu cá nhân và Nghị định hướng dẫn.</p>
+
+                        <h2>8. Thời gian lưu trữ</h2>
+                        <p>Dữ liệu cá nhân được lưu trữ trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo thời hạn luật định, sau đó được xóa hoặc ẩn danh một cách an toàn.</p>
+
+                        <h2>9. Bảo mật dữ liệu</h2>
+                        <p>Chúng tôi áp dụng các biện pháp kỹ thuật và quản lý hợp lý (kết nối HTTPS, phân quyền truy cập, sao lưu) nhằm bảo vệ dữ liệu khỏi truy cập, thay đổi hoặc tiết lộ trái phép.</p>
+
+                        <h2>10. Quyền của bạn đối với dữ liệu cá nhân</h2>
+                        <p>Theo Luật Bảo vệ dữ liệu cá nhân, bạn có các quyền sau:</p>
+                        <ul>
+                            <li>Quyền được biết về việc xử lý dữ liệu của mình.</li>
+                            <li>Quyền đồng ý hoặc không đồng ý với việc xử lý.</li>
+                            <li>Quyền truy cập, xem, chỉnh sửa dữ liệu.</li>
+                            <li>Quyền rút lại sự đồng ý.</li>
+                            <li>Quyền yêu cầu xóa hoặc hạn chế xử lý dữ liệu.</li>
+                            <li>Quyền phản đối việc xử lý dữ liệu.</li>
+                            <li>Quyền khiếu nại, tố cáo, khởi kiện và yêu cầu bồi thường theo quy định.</li>
+                        </ul>
+                        <p>Để thực hiện các quyền trên, vui lòng liên hệ qua thông tin tại Mục 12.</p>
+
+                        <h2>11. Dữ liệu của trẻ em</h2>
+                        <p>Website hướng tới đối tượng khách hàng doanh nghiệp (B2B) và không chủ đích thu thập dữ liệu của trẻ em dưới 16 tuổi. Việc xử lý dữ liệu trẻ em (nếu có) phải có sự đồng ý của cha, mẹ hoặc người giám hộ theo quy định pháp luật.</p>
+
+                        <h2>12. Liên hệ về dữ liệu cá nhân</h2>
+                        <p>Mọi yêu cầu, câu hỏi hoặc khiếu nại liên quan đến dữ liệu cá nhân, vui lòng liên hệ: <a href="mailto:info@beddingsourcing.vn">info@beddingsourcing.vn</a> hoặc <a href="tel:0933126162">0933 126 162</a>.</p>
+
+                        <h2>13. Thay đổi chính sách</h2>
+                        <p>Chúng tôi có thể cập nhật Chính sách này theo thời gian. Phiên bản mới sẽ được đăng tại trang này kèm ngày cập nhật. Việc bạn tiếp tục sử dụng website sau khi cập nhật đồng nghĩa với việc bạn chấp nhận nội dung đã thay đổi.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -3164,6 +3372,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Thông báo cookie">
+        <p>Chúng tôi sử dụng cookie để cải thiện trải nghiệm và phân tích lưu lượng truy cập. Bằng việc tiếp tục, bạn đồng ý với việc thu thập cookie theo <a href="#chinh-sach-bao-mat">Chính sách bảo mật</a> của chúng tôi.</p>
+        <div class="cookie-actions">
+            <button type="button" class="cookie-decline" id="cookieDecline">Từ chối</button>
+            <button type="button" class="cookie-accept" id="cookieAccept">Chấp nhận</button>
+        </div>
+    </div>
 
     <!-- Floating Contacts -->
     <div class="floating-contacts">
@@ -3309,6 +3526,24 @@
             // Always close the mobile menu when a nav link is tapped (covers href="#"
             // which may not trigger a hashchange event).
             navLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+            // 3c. COOKIE CONSENT BANNER
+            const cookieBanner = document.getElementById('cookieConsent');
+            if (cookieBanner) {
+                let consent = null;
+                try { consent = localStorage.getItem('bs_cookie_consent'); } catch (e) {}
+                if (!consent) {
+                    setTimeout(() => cookieBanner.classList.add('show'), 1200);
+                }
+                const setConsent = (value) => {
+                    try { localStorage.setItem('bs_cookie_consent', value); } catch (e) {}
+                    cookieBanner.classList.remove('show');
+                };
+                const acceptBtn = document.getElementById('cookieAccept');
+                const declineBtn = document.getElementById('cookieDecline');
+                if (acceptBtn) acceptBtn.addEventListener('click', () => setConsent('accepted'));
+                if (declineBtn) declineBtn.addEventListener('click', () => setConsent('declined'));
+            }
 
             // 3b. FORCE HERO VIDEO AUTOPLAY ON MOBILE (iOS/Android)
             // Mobile browsers often block autoplay until muted playback is explicitly
