@@ -461,6 +461,9 @@
             background-position: center;
             color: #ffffff;
             overflow: hidden;
+            /* Contain composited child layers (video, blurred cards) so they
+               cannot leave stray artifacts over the sections below on iOS. */
+            isolation: isolate;
         }
 
         /* Cinematic soft overlay */
@@ -484,6 +487,12 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
+            /* Stabilize the compositing layer to prevent iOS Safari from
+               rendering the video as a stray black box during scroll. */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .hero-container {
@@ -611,6 +620,17 @@
             .hero-dashboard {
                 grid-template-columns: repeat(2, 1fr);
                 padding-bottom: 30px;
+            }
+            /* iOS Safari fix: backdrop-filter leaves a dark "ghost" rounded block
+               floating over content while scrolling. Use a solid translucent
+               background (no blur) on mobile — looks the same on the dark hero. */
+            .dashboard-card {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(30, 41, 59, 0.55);
+            }
+            .dashboard-card:hover {
+                background: rgba(30, 41, 59, 0.7);
             }
         }
 
