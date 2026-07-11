@@ -1900,79 +1900,173 @@
             stroke-width: 2.5;
         }
 
-        /* Mobile Nav Menu Overlay (Apple Style) - includes tablets up to 992px */
+        /* Mobile Nav Menu Overlay (Modern App Style) - includes tablets up to 992px */
+        .mobile-menu-label,
+        .mobile-menu-contact { display: none; }
+
         @media (max-width: 992px) {
             .menu-btn {
                 display: flex;
             }
-            
+
             nav {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background-color: var(--bg-primary);
+                height: 100dvh;
+                background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
                 z-index: 1000;
-                transition: var(--transition-smooth);
-                padding: 100px 40px 40px 40px;
+                transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                padding: 84px 26px 28px 26px;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
+                overflow-y: auto;
             }
 
             nav.open {
                 right: 0;
             }
 
+            /* Section label at top of menu */
+            .mobile-menu-label {
+                display: block;
+                font-size: 0.68rem;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--text-tertiary);
+                margin-bottom: 6px;
+                padding-left: 6px;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition-delay: 0.05s;
+            }
+            nav.open .mobile-menu-label { opacity: 1; transform: translateX(0); }
+
             nav ul {
                 flex-direction: column;
-                gap: 32px;
+                gap: 0;
+                counter-reset: navcount;
+            }
+
+            nav li {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             }
 
             nav a {
-                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                font-size: 1.1rem;
                 font-weight: 600;
                 text-transform: none;
                 letter-spacing: -0.01em;
                 color: var(--text-primary);
-                display: block;
+                padding: 16px 6px;
+                border-radius: 12px;
                 opacity: 0;
-                transform: translateX(30px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transform: translateX(22px);
+                transition: opacity 0.5s ease, transform 0.5s ease, color 0.25s ease;
             }
+
+            /* Auto-numbered index (01, 02, ...) */
+            nav a::before {
+                counter-increment: navcount;
+                content: counter(navcount, decimal-leading-zero);
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                color: var(--text-tertiary);
+                min-width: 20px;
+            }
+
+            /* Chevron on the right */
+            nav a::after {
+                content: '';
+                margin-left: auto;
+                width: 7px;
+                height: 7px;
+                border-top: 2px solid currentColor;
+                border-right: 2px solid currentColor;
+                transform: rotate(45deg);
+                opacity: 0.25;
+                transition: transform 0.25s ease, opacity 0.25s ease;
+            }
+
+            nav a:hover, nav a:active { color: var(--accent); }
+            nav a:hover::after { opacity: 0.6; transform: translateX(3px) rotate(45deg); }
+
+            nav a.active { color: var(--accent); }
+            nav a.active::before { color: var(--accent); }
+            nav a.active::after { border-color: var(--accent); opacity: 0.7; }
 
             nav.open a {
                 opacity: 1;
                 transform: translateX(0);
             }
 
-            /* Delay fade in links */
-            nav.open ul li:nth-child(1) a { transition-delay: 0.1s; }
-            nav.open ul li:nth-child(2) a { transition-delay: 0.15s; }
-            nav.open ul li:nth-child(3) a { transition-delay: 0.2s; }
-            nav.open ul li:nth-child(4) a { transition-delay: 0.25s; }
-            nav.open ul li:nth-child(5) a { transition-delay: 0.3s; }
-            nav.open ul li:nth-child(6) a { transition-delay: 0.35s; }
-            nav.open ul li:nth-child(7) a { transition-delay: 0.4s; }
+            /* Staggered fade in of links */
+            nav.open ul li:nth-child(1) a { transition-delay: 0.08s; }
+            nav.open ul li:nth-child(2) a { transition-delay: 0.12s; }
+            nav.open ul li:nth-child(3) a { transition-delay: 0.16s; }
+            nav.open ul li:nth-child(4) a { transition-delay: 0.20s; }
+            nav.open ul li:nth-child(5) a { transition-delay: 0.24s; }
+            nav.open ul li:nth-child(6) a { transition-delay: 0.28s; }
+            nav.open ul li:nth-child(7) a { transition-delay: 0.32s; }
 
             .header-cta {
                 display: none; /* inside header */
             }
-            
+
             .mobile-cta {
-                margin-top: 40px;
+                margin-top: 26px;
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(16px);
                 transition: opacity 0.5s ease, transform 0.5s ease;
-                transition-delay: 0.45s;
+                transition-delay: 0.42s;
+            }
+            nav.open .mobile-cta { opacity: 1; transform: translateY(0); }
+
+            .mobile-cta .btn {
+                padding: 15px 28px;
+                font-size: 0.95rem;
+                box-shadow: 0 10px 24px rgba(0, 102, 204, 0.18);
             }
 
-            nav.open .mobile-cta {
-                opacity: 1;
-                transform: translateY(0);
+            /* Quick contact row at the bottom of the menu */
+            .mobile-menu-contact {
+                display: flex;
+                gap: 12px;
+                margin-top: 14px;
+                opacity: 0;
+                transform: translateY(16px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition-delay: 0.48s;
             }
+            nav.open .mobile-menu-contact { opacity: 1; transform: translateY(0); }
+
+            .mobile-menu-contact a {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 13px;
+                border-radius: 12px;
+                background: rgba(0, 0, 0, 0.045);
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                transition: background-color 0.25s ease, color 0.25s ease;
+            }
+            .mobile-menu-contact a svg { width: 16px; height: 16px; flex-shrink: 0; }
+            .mobile-menu-contact .m-phone:active { background: rgba(40, 167, 69, 0.12); color: #28a745; }
+            .mobile-menu-contact .m-zalo:active { background: rgba(0, 104, 255, 0.12); color: #0068ff; }
         }
 
         /* Desktop CTA hide in mobile menu but show inline if needed */
@@ -2022,6 +2116,7 @@
             </a>
             
             <nav id="nav">
+                <span class="mobile-menu-label">Điều hướng</span>
                 <ul>
                     <li><a href="#" class="active">Trang chủ</a></li>
                     <li><a href="#gioi-thieu">Giới thiệu</a></li>
@@ -2033,6 +2128,16 @@
                 </ul>
                 <div class="mobile-cta">
                     <a href="#lien-he" class="btn btn-accent btn-menu-close" style="width: 100%;">Nhận tư vấn sourcing</a>
+                </div>
+                <div class="mobile-menu-contact">
+                    <a href="tel:0933126162" class="m-phone btn-menu-close" aria-label="Gọi điện thoại">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        Gọi ngay
+                    </a>
+                    <a href="https://zalo.me/84933126162" target="_blank" rel="noopener" class="m-zalo btn-menu-close" aria-label="Chat Zalo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        Chat Zalo
+                    </a>
                 </div>
             </nav>
 
@@ -3103,6 +3208,9 @@
 
             menuToggle.addEventListener('click', toggleMobileMenu);
             menuBtnCloses.forEach(btn => btn.addEventListener('click', closeMobileMenu));
+            // Always close the mobile menu when a nav link is tapped (covers href="#"
+            // which may not trigger a hashchange event).
+            navLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
             // 3b. FORCE HERO VIDEO AUTOPLAY ON MOBILE (iOS/Android)
             // Mobile browsers often block autoplay until muted playback is explicitly
