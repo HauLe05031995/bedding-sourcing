@@ -40,7 +40,7 @@
         }
 
         /* Reset & Base Styles */
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -51,6 +51,9 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -58,7 +61,13 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.5;
+            width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
+            position: relative;
+            /* Long words/URLs wrap instead of forcing width */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         a {
@@ -76,7 +85,7 @@
             transition: var(--transition-fast);
         }
 
-        img {
+        img, video, iframe {
             max-width: 100%;
             height: auto;
             display: block;
@@ -1734,9 +1743,26 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
             }
+            /* Compact footer: about on top (full width), the two link columns
+               side by side, contact block full width below — much shorter than
+               a single stacked column. */
             .footer-top {
-                grid-template-columns: 1fr;
-                gap: 40px;
+                grid-template-columns: 1fr 1fr;
+                gap: 28px 20px;
+                margin-bottom: 32px;
+            }
+            .footer-about {
+                grid-column: 1 / -1;
+            }
+            .footer-top > div:last-child {
+                grid-column: 1 / -1;
+            }
+            .footer-about p {
+                margin-bottom: 0;
+                font-size: 0.82rem;
+            }
+            footer {
+                padding: 48px 0 24px 0;
             }
             .footer-bottom {
                 flex-direction: column;
@@ -1823,7 +1849,7 @@
         @keyframes pulse-ring {
             0% { transform: scale(0.8); opacity: 0; }
             50% { opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1.4); opacity: 0; }
         }
 
         /* Footer Socials */
@@ -2162,6 +2188,18 @@
         @media (max-width: 380px) {
             .hero h1 { font-size: 1.72rem; }
         }
+
+        /* ===== Horizontal-overflow hardening ===== */
+        @media (max-width: 768px) {
+            /* Stat columns can never be forced wider than their share */
+            .about-stats { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+            /* Any table stays inside its container (internal scroll, not page scroll) */
+            .spec-table-container { max-width: 100%; }
+        }
+        @media (max-width: 360px) {
+            .container { padding-left: 18px; padding-right: 18px; }
+            .logo-text { font-size: 0.9rem; letter-spacing: 0.08em; }
+        }
     </style>
 </head>
 <body>
@@ -2219,7 +2257,7 @@
             <section class="hero">
                 <!-- Video Background (Auto plays if 02_video_nen.mp4 exists, otherwise falls back to the background image) -->
                 <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="assets/img/hero/01_hinh_nen_chinh.jpg?v=2">
-                    <source src="assets/img/hero/02_video_nen.mp4?v=2" type="video/mp4">
+                    <source src="assets/img/hero/02_video_nen.mp4?v=3" type="video/mp4">
                 </video>
                 
                 <div class="hero-container">
@@ -2279,7 +2317,7 @@
                             <a href="#gioi-thieu" class="btn btn-primary" style="margin-top: 15px;">Tìm hiểu sâu hơn</a>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img src="assets/img/about/01_chuoi_cung_ung.png?v=2" alt="Vận chuyển logistics và container đường biển">
+                            <img loading="lazy" decoding="async" src="assets/img/about/01_chuoi_cung_ung.png?v=2" alt="Vận chuyển logistics và container đường biển">
                         </div>
                     </div>
                 </div>
@@ -2378,7 +2416,7 @@
                             <p>Chúng tôi tập trung kết nối, thương thảo giá gốc nhà máy, giám sát tiến độ may mẫu, kiểm hàng độc lập (QC) và điều phối hải quan xuất nhập khẩu ủy thác chuyên nghiệp. Với mạng lưới đối tác sâu rộng tại các vùng nguyên liệu dệt may hàng đầu Việt Nam, Trung Quốc và Ấn Độ, chúng tôi đảm bảo dòng chảy sản xuất của doanh nghiệp luôn được duy trì liên tục và tối ưu chi phí.</p>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img src="assets/img/about/02_toi_uu_gia_tri.jpg?v=2" alt="Yarn spools spinning">
+                            <img loading="lazy" decoding="async" src="assets/img/about/02_toi_uu_gia_tri.jpg?v=2" alt="Yarn spools spinning">
                         </div>
                     </div>
                 </div>
@@ -2389,7 +2427,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img src="assets/img/about/03_dinh_huong_tuong_lai.jpg?v=2" alt="Detailed sewing process">
+                            <img loading="lazy" decoding="async" src="assets/img/about/03_dinh_huong_tuong_lai.jpg?v=2" alt="Detailed sewing process">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Định hướng tương lai</span>
@@ -2566,7 +2604,7 @@
                             </ul>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img src="assets/img/services/01_cung_ung_toan_dien.jpg?v=2" alt="Factory machinery automation">
+                            <img loading="lazy" decoding="async" src="assets/img/services/01_cung_ung_toan_dien.jpg?v=2" alt="Factory machinery automation">
                         </div>
                     </div>
                 </div>
@@ -2630,7 +2668,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img src="assets/img/process/01_kiem_soat_chat_luong.jpg?v=2" alt="Testing laboratory checks">
+                            <img loading="lazy" decoding="async" src="assets/img/process/01_kiem_soat_chat_luong.jpg?v=2" alt="Testing laboratory checks">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Quy chuẩn kiểm soát</span>
@@ -2664,7 +2702,7 @@
                     <div class="products-grid">
                         <!-- Product 1 -->
                         <div class="product-card reveal-slide-up" style="--delay: 100ms;">
-                            <img src="assets/img/products/01_ga_trai_giuong.jpg?v=2" alt="Ga trải giường cao cấp">
+                            <img loading="lazy" decoding="async" src="assets/img/products/01_ga_trai_giuong.jpg?v=2" alt="Ga trải giường cao cấp">
                             <div class="product-content">
                                 <h3>Ga trải giường</h3>
                                 <p>Chất liệu Cotton Sateen 40s/60s/80s, Tencel Lyocell sinh học, Bamboo Silk kháng khuẩn, Linen thô tự nhiên...</p>
@@ -2673,7 +2711,7 @@
                         
                         <!-- Product 2 -->
                         <div class="product-card reveal-slide-up" style="--delay: 200ms;">
-                            <img src="assets/img/products/02_vo_chan_vo_goi.jpg?v=2" alt="Vỏ chăn và vỏ gối tinh tế">
+                            <img loading="lazy" decoding="async" src="assets/img/products/02_vo_chan_vo_goi.jpg?v=2" alt="Vỏ chăn và vỏ gối tinh tế">
                             <div class="product-content">
                                 <h3>Vỏ chăn & Vỏ gối</h3>
                                 <p>Các dòng vỏ chăn thêu họa tiết nghệ thuật, trơn màu tối giản phong cách Bắc Âu, jacquard hoặc dệt sọc satin khách sạn.</p>
@@ -2682,7 +2720,7 @@
                         
                         <!-- Product 3 -->
                         <div class="product-card reveal-slide-up" style="--delay: 300ms;">
-                            <img src="assets/img/products/03_ruot_chan_ruot_goi.jpg?v=2" alt="Ruột gối ruột chăn siêu mềm">
+                            <img loading="lazy" decoding="async" src="assets/img/products/03_ruot_chan_ruot_goi.jpg?v=2" alt="Ruột gối ruột chăn siêu mềm">
                             <div class="product-content">
                                 <h3>Ruột chăn & Ruột gối</h3>
                                 <p>Bông Microfiber siêu mịn giả lông vũ, ruột bông tự nhiên kháng khuẩn, lông vũ ngỗng tinh khiết đạt chuẩn lọc bụi quốc tế.</p>
@@ -2691,7 +2729,7 @@
                         
                         <!-- Product 4 -->
                         <div class="product-card reveal-slide-up" style="--delay: 100ms;">
-                            <img src="assets/img/products/04_dem_va_topper.jpg?v=2" alt="Đệm và topper cao cấp">
+                            <img loading="lazy" decoding="async" src="assets/img/products/04_dem_va_topper.jpg?v=2" alt="Đệm và topper cao cấp">
                             <div class="product-content">
                                 <h3>Đệm & Topper</h3>
                                 <p>Đệm lò xo túi độc lập nâng đỡ 7 vùng cơ thể, đệm cao su thiên nhiên 100% và topper lông vũ êm ái tiêu chuẩn khách sạn 5 sao.</p>
@@ -2700,7 +2738,7 @@
                         
                         <!-- Product 5 -->
                         <div class="product-card reveal-slide-up" style="--delay: 200ms;">
-                            <img src="assets/img/products/05_khan_do_vai_khach_san.jpg?v=2" alt="Khăn tắm và đồ vải khách sạn">
+                            <img loading="lazy" decoding="async" src="assets/img/products/05_khan_do_vai_khach_san.jpg?v=2" alt="Khăn tắm và đồ vải khách sạn">
                             <div class="product-content">
                                 <h3>Khăn & Đồ vải khách sạn</h3>
                                 <p>Khăn tắm cotton sợi đôi (double-loop) dệt mật độ cao thấm hút nước tốt, áo choàng tắm tổ ong, dép buồng phòng và váy giường.</p>
@@ -2709,7 +2747,7 @@
                         
                         <!-- Product 6 -->
                         <div class="product-card reveal-slide-up" style="--delay: 300ms;">
-                            <img src="assets/img/products/06_rem_tham_trang_tri.jpg?v=2" alt="Rèm thảm trang trí">
+                            <img loading="lazy" decoding="async" src="assets/img/products/06_rem_tham_trang_tri.jpg?v=2" alt="Rèm thảm trang trí">
                             <div class="product-content">
                                 <h3>Rèm, Thảm & Dệt gia dụng</h3>
                                 <p>Rèm cản sáng chống tia UV chất liệu linen mềm mại, thảm cotton dệt tay trang trí phòng khách và thảm trải sàn dệt vòng.</p>
@@ -2768,7 +2806,7 @@
                             </div>
                         </div>
                         <div class="about-media reveal-slide-right">
-                            <img src="assets/img/specs/01_tieu_chuan_chat_lieu.jpg?v=2" alt="Công nghệ dệt vải hiện đại">
+                            <img loading="lazy" decoding="async" src="assets/img/specs/01_tieu_chuan_chat_lieu.jpg?v=2" alt="Công nghệ dệt vải hiện đại">
                         </div>
                     </div>
                 </div>
@@ -2835,7 +2873,7 @@
                             </div>
                         </div>
                         <div class="benefits-media reveal-slide-right">
-                            <img src="assets/img/advantages/01_nang_luc_san_xuat.jpg?v=2" alt="Quy trình dệt may công nghiệp">
+                            <img loading="lazy" decoding="async" src="assets/img/advantages/01_nang_luc_san_xuat.jpg?v=2" alt="Quy trình dệt may công nghiệp">
                         </div>
                     </div>
                 </div>
@@ -2846,7 +2884,7 @@
                 <div class="container">
                     <div class="grid-2">
                         <div class="about-media reveal-slide-left">
-                            <img src="assets/img/advantages/02_nguon_cung_kho_bai.png?v=2" alt="Clean modern warehouse storage">
+                            <img loading="lazy" decoding="async" src="assets/img/advantages/02_nguon_cung_kho_bai.png?v=2" alt="Clean modern warehouse storage">
                         </div>
                         <div class="about-content reveal-slide-right">
                             <span class="badge">Nguồn cung & Kho bãi</span>
@@ -3120,8 +3158,8 @@
                     &copy; 2026 BEDDING SOURCING. Bảo lưu mọi quyền thương hiệu.
                 </div>
                 <div class="footer-bottom-links">
-                    <a href="#">Chính sách bảo mật</a>
-                    <a href="#">Điều khoản dịch vụ</a>
+                    <a href="#chinh-sach-bao-mat">Chính sách bảo mật</a>
+                    <a href="#chinh-sach-bao-mat">Điều khoản &amp; Cookie</a>
                 </div>
             </div>
         </div>
