@@ -2326,10 +2326,19 @@
         }
 
         /* ===== Language (VN/EN) toggle ===== */
-        .lang-toggle{display:inline-flex;align-items:center;border:1px solid var(--border-color);border-radius:99px;overflow:hidden;flex-shrink:0;margin-left:2px;}
-        .lang-toggle button{padding:5px 9px;font-size:0.72rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.03em;line-height:1;background:none;}
-        .lang-toggle button.active{background:var(--primary);color:#ffffff;}
-        @media (max-width:992px){ .lang-toggle{margin-right:6px;} }
+        .lang-dd{position:relative;flex-shrink:0;margin-left:2px;}
+        .lang-dd-trigger{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border-color);border-radius:99px;font-size:0.75rem;font-weight:700;color:var(--text-secondary);letter-spacing:0.02em;line-height:1;background:none;transition:var(--transition-fast);}
+        .lang-dd-trigger:hover{border-color:rgba(0,0,0,0.18);color:var(--text-primary);}
+        .lang-dd-trigger svg{width:15px;height:15px;flex-shrink:0;}
+        .lang-dd-caret{transition:transform 0.25s ease;}
+        .lang-dd.open .lang-dd-caret{transform:rotate(180deg);}
+        .lang-dd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.1);padding:6px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;z-index:1100;}
+        .lang-dd.open .lang-dd-menu{opacity:1;visibility:visible;transform:translateY(0);}
+        .lang-dd-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:9px 12px;border-radius:8px;font-size:0.85rem;font-weight:600;color:var(--text-primary);text-align:left;background:none;transition:background-color 0.2s ease;}
+        .lang-dd-menu button:hover{background:var(--bg-secondary);}
+        .lang-dd-menu button.active{color:var(--accent);}
+        .lang-dd-menu button.active::after{content:'';width:6px;height:11px;border:solid var(--accent);border-width:0 2px 2px 0;transform:rotate(45deg);margin-right:2px;margin-bottom:2px;}
+        @media (max-width:992px){ .lang-dd{margin-right:6px;} }
     </style>
 </head>
 <body>
@@ -2369,9 +2378,16 @@
                 </div>
             </nav>
 
-            <div class="lang-toggle" role="group" aria-label="Language / Ngôn ngữ">
-                <button type="button" data-lang="vi" class="active" aria-label="Tiếng Việt">VI</button>
-                <button type="button" data-lang="en" aria-label="English">EN</button>
+            <div class="lang-dd" id="langDd">
+                <button type="button" class="lang-dd-trigger" id="langDdTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Ngôn ngữ / Language">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span class="lang-dd-current" data-lang-current>VI</span>
+                    <svg class="lang-dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="lang-dd-menu" role="menu">
+                    <button type="button" data-lang="vi" role="menuitem"><span>Tiếng Việt</span></button>
+                    <button type="button" data-lang="en" role="menuitem"><span>English</span></button>
+                </div>
             </div>
             <a href="#lien-he" class="header-cta">Nhận tư vấn</a>
             
@@ -3721,14 +3737,31 @@
         for(var j=0;j<an.length;j++){ var b=an[j]; b.el.setAttribute(b.a, lang==='en'?b.en:b.vi); }
         document.documentElement.setAttribute('lang', lang);
         if(TITLE[lang]) document.title=TITLE[lang];
-        var btns=document.querySelectorAll('.lang-toggle button');
-        for(var m=0;m<btns.length;m++){ btns[m].classList.toggle('active', btns[m].getAttribute('data-lang')===lang); }
+        var cur=document.querySelector('[data-lang-current]');
+        if(cur) cur.textContent = (lang==='en'?'EN':'VI');
+        var items=document.querySelectorAll('.lang-dd-menu button');
+        for(var m=0;m<items.length;m++){ items[m].classList.toggle('active', items[m].getAttribute('data-lang')===lang); }
       }
       function setLang(l){ lang=l; try{localStorage.setItem(KEY,l);}catch(e){} apply(); }
       function init(){
         collect();
-        var btns=document.querySelectorAll('.lang-toggle button');
-        for(var m=0;m<btns.length;m++){ (function(b){ b.addEventListener('click',function(){ setLang(b.getAttribute('data-lang')); }); })(btns[m]); }
+        var dd=document.getElementById('langDd');
+        var trigger=document.getElementById('langDdTrigger');
+        if(trigger&&dd){
+          trigger.addEventListener('click',function(e){
+            e.stopPropagation();
+            var open=dd.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', open?'true':'false');
+          });
+          document.addEventListener('click',function(e){
+            if(!dd.contains(e.target)){ dd.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+          });
+        }
+        var items=document.querySelectorAll('.lang-dd-menu button');
+        for(var m=0;m<items.length;m++){ (function(b){ b.addEventListener('click',function(){
+          setLang(b.getAttribute('data-lang'));
+          if(dd){ dd.classList.remove('open'); if(trigger) trigger.setAttribute('aria-expanded','false'); }
+        }); })(items[m]); }
         apply();
       }
       if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
