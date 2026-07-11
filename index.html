@@ -1580,25 +1580,37 @@
         /* Success Message Toast */
         .toast-notification {
             position: fixed;
-            bottom: -100px;
+            bottom: 40px;
             left: 50%;
-            transform: translateX(-50%);
+            /* Hidden by default via opacity/visibility so it can never poke into
+               the viewport (a tall wrapped message previously showed as a dark blob). */
+            transform: translateX(-50%) translateY(24px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            width: max-content;
+            max-width: min(90vw, 440px);
             background-color: var(--primary);
             color: #ffffff;
-            padding: 16px 32px;
-            border-radius: 99px;
+            padding: 16px 24px;
+            border-radius: 16px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 0.95rem;
             font-weight: 500;
+            line-height: 1.4;
+            text-align: left;
             z-index: 2000;
-            transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.4s;
         }
 
         .toast-notification.show {
-            bottom: 40px;
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .toast-notification svg {
