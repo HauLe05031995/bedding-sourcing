@@ -2364,12 +2364,23 @@
             margin: 20px 0;
         }
         .policy-box p:last-child { margin-bottom: 0; }
-        /* Bảng trong bài viết blog (dùng chung khung .policy-content) */
+        /* Bảng trong bài viết blog (dùng chung khung .policy-content).
+           LUÔN bọc trong .table-scroll: bảng rộng hơn màn hình sẽ cuộn NỘI BỘ,
+           không đẩy cả trang tràn ngang (fix tận gốc, không dùng overflow che). */
+        .table-scroll {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0 24px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
         .policy-content table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
-            margin: 16px 0 24px 0;
+            margin: 0;
         }
         .policy-content th, .policy-content td {
             padding: 10px 12px;
@@ -2708,7 +2719,7 @@
                 <div class="container text-center">
                     <span class="badge">Năng lực số liệu</span>
                     <h2 class="reveal-fade" style="font-weight: 800; color: var(--primary); margin-bottom: 50px;">Cam kết năng lực của Bedding Sourcing</h2>
-                    <div class="about-stats reveal-slide-up" style="border: none; margin-top: 0; padding-top: 0; display: grid; grid-template-columns: repeat(4, 1fr); justify-content: center; max-width: 1000px; margin: 0 auto;">
+                    <div class="about-stats reveal-slide-up" style="border: none; margin-top: 0; padding-top: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); justify-content: center; max-width: 1000px; margin: 0 auto;">
                         <div class="stat-item" style="text-align: center;">
                             <span class="stat-number" style="font-size: 3rem; color: var(--accent);">50+</span>
                             <span class="stat-label">Nhà máy đối tác đạt chuẩn quốc tế</span>
@@ -3723,7 +3734,8 @@
                         <p>Thread count (TC) is the most misused number in bedding. Two fabrics with the same TC can feel completely different depending on yarn count (40s vs 80s), ply and weave. See our guide <a href="#blog-thread-count">Thread Count Explained</a>.</p>
 
                         <h2>3. Shortlist factories by certification — then verify capability</h2>
-                        <table>
+                        <div class="table-scroll">
+<table>
                             <thead><tr><th>Certificate</th><th>What it covers</th><th>Who usually requires it</th></tr></thead>
                             <tbody>
                                 <tr><td>OEKO-TEX Standard 100</td><td>No harmful substances in the finished textile</td><td>Nearly all EU/US retail buyers</td></tr>
@@ -3732,6 +3744,7 @@
                                 <tr><td>WRAP</td><td>Ethical manufacturing</td><td>US-oriented programs</td></tr>
                             </tbody>
                         </table>
+</div>
                         <p>Certificates are the entry ticket, not the decision. Before committing volume, verify capability on site: machinery, retained samples of comparable orders, and how the factory documents in-process quality.</p>
 
                         <h2>4. Plan around realistic MOQs</h2>
@@ -3767,7 +3780,8 @@
                         <p>Consolidating LCL lots into a full container (FCL) at a bonded warehouse cuts freight cost substantially versus shipping each lot separately — and gives one point of moisture-proof packing control before the sea voyage.</p>
 
                         <h2>A realistic timeline</h2>
-                        <table>
+                        <div class="table-scroll">
+<table>
                             <thead><tr><th>Stage</th><th>Typical duration</th></tr></thead>
                             <tbody>
                                 <tr><td>Spec &amp; tech pack finalization</td><td>3–7 days</td></tr>
@@ -3777,6 +3791,7 @@
                                 <tr><td>Inspection, documents &amp; loading</td><td>5–7 days</td></tr>
                             </tbody>
                         </table>
+</div>
                         <p>From frozen spec to loaded container, plan 45–75 days depending on fabric customization.</p>
 
                         <div class="article-cta">
@@ -3811,7 +3826,8 @@
                         <div class="policy-box"><p><strong>So how do "1000TC" sheets exist?</strong> Multi-ply counting. A factory twists two or three coarse strands into each yarn, then counts every strand separately: 300 two-ply yarns become "600TC" on the label. The fabric is often heavier and coarser than an honest 300TC single-ply — but the number looks impressive.</p></div>
 
                         <h2>Weave changes everything too</h2>
-                        <table>
+                        <div class="table-scroll">
+<table>
                             <thead><tr><th>Weave</th><th>Feel</th><th>Typical use</th></tr></thead>
                             <tbody>
                                 <tr><td>Percale (plain weave)</td><td>Crisp, matte, breathable</td><td>Classic hotel sheets, warm climates</td></tr>
@@ -3819,6 +3835,7 @@
                                 <tr><td>Jacquard / dobby</td><td>Woven-in patterns and stripes</td><td>Hospitality branding, premium duvet covers</td></tr>
                             </tbody>
                         </table>
+</div>
                         <p>A 250TC percale and a 300TC sateen in the same yarn are both excellent fabrics with completely different personalities. Choosing weave by end-use matters more than chasing a higher number.</p>
 
                         <h2>What quality buyers actually specify</h2>
