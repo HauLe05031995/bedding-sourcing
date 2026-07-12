@@ -1138,7 +1138,7 @@
                 /* Ẩn mặc định — chỉ trượt lên khi người dùng cuộn trang (JS thêm .show) */
                 transform: translateY(110%);
                 visibility: hidden;
-                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+                transition: transform 0.22s ease-out, visibility 0.22s;
             }
             .mobile-cta-bar.show {
                 transform: translateY(0);
@@ -2183,6 +2183,7 @@
             /* Quick contact row at the bottom of the menu */
             .mobile-menu-contact {
                 display: flex;
+                flex-wrap: wrap; /* 3 nút không đủ chỗ 1 hàng -> tự xuống hàng, không tràn panel */
                 gap: 12px;
                 margin-top: 14px;
                 opacity: 0;
@@ -2193,7 +2194,8 @@
             nav.open .mobile-menu-contact { opacity: 1; transform: translateY(0); }
 
             .mobile-menu-contact a {
-                flex: 1;
+                flex: 1 1 40%;
+                min-width: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -2251,6 +2253,14 @@
         html { overflow-x: hidden; }
 
         @media (max-width: 992px) {
+            /* FIX GỐC LỖI KÉO NGANG MOBILE: reveal-slide-left/right đứng chờ ở
+               translateX(±40px) làm trang rộng thêm 16px trước khi animation chạy
+               (iOS Safari vẫn cho vuốt ngang dù đã overflow-x:hidden).
+               Trên màn hình hẹp chuyển thành trượt dọc — không chiếm bề ngang. */
+            .js .reveal-slide-left,
+            .js .reveal-slide-right {
+                transform: translateY(40px);
+            }
             /* Prevent grid images from blowing out the column width (which caused
                text in the other column to overflow off-screen horizontally). */
             .grid-2, .benefits-grid, .contact-grid {
@@ -4200,9 +4210,10 @@
                     backToTop.classList.remove('show');
                 }
 
-                // Sticky CTA mobile: chỉ hiện sau khi cuộn qua ~nửa màn hình đầu
+                // Sticky CTA mobile: hiện NGAY khi bắt đầu cuộn xuống (>60px),
+                // ẩn lại khi quay về sát đầu trang
                 if (mobileCtaBar) {
-                    if (scrollPos > window.innerHeight * 0.5) {
+                    if (scrollPos > 60) {
                         mobileCtaBar.classList.add('show');
                     } else {
                         mobileCtaBar.classList.remove('show');
